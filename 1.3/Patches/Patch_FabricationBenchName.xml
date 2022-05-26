@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationAttributeSet">
+    <xpath>/Defs/ThingDef[defName="FabricationBench"]</xpath>
+    <attribute>Name</attribute>
+    <value>FabricationBench</value>
+  </Operation>
+</Patch>

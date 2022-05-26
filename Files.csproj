@@ -47,6 +47,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="1.3\Defs\ThingDef\ThingDefs_SettledIn.xml" />
+    <Content Include="1.3\Defs\WorkGiverDef\WorkGivers_SettledIn.xml" />
+    <Content Include="1.3\Patches\Patch_FabricationBenchName.xml" />
     <Content Include="Languages\English\Keyed\keys.xml" />
     <Content Include="Languages\German\DefInjected\ResearchProjectDef\ResearchProjectDefs_Repeatable.xml" />
     <Content Include="Languages\German\Keyed\keys.xml" />
@@ -73,11 +76,8 @@
     <Folder Include="1.3\Defs\RecordDef\" />
     <Folder Include="1.3\Defs\ReseachProjectDef\" />
     <Folder Include="1.3\Defs\Stats\" />
-    <Folder Include="1.3\Defs\ThingDef\" />
     <Folder Include="1.3\Defs\ThinkTreeDef\" />
     <Folder Include="1.3\Defs\ThoughtDef\" />
-    <Folder Include="1.3\Defs\WorkGiverDef\" />
-    <Folder Include="1.3\Patches\" />
     <Folder Include="Languages\German\DefInjected\ThoughtDef\" />
     <Folder Include="Textures\" />
   </ItemGroup>

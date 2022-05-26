@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <WorkGiverDef>
+    <defName>DoBillsPersonalizedFabricationBench</defName>
+    <label>fabricate things</label>
+    <giverClass>DanielRenner.SettledIn.WorkGiver_DoBillPersonalized</giverClass>
+    <workType>Smithing</workType>
+    <priorityInType>51</priorityInType>
+    <fixedBillGiverDefs>
+      <li>PersonalizedFabricationBench</li>
+    </fixedBillGiverDefs>
+    <verb>fabricate</verb>
+    <gerund>fabricating things at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+</Defs>
