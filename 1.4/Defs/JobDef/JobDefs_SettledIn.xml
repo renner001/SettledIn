@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- ManageSettlement -->
+  <JobDef>
+    <defName>ManageSettlement</defName>
+    <driverClass>DanielRenner.SettledIn.JobDriver_ManageSettlement</driverClass>
+    <reportString>Managing the colony.</reportString>
+    <suspendable>false</suspendable>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+  <!-- EnjoySettlementCenter -->
+  <JobDef>
+    <defName>EnjoySettlementCenter</defName>
+    <driverClass>DanielRenner.SettledIn.JobDriver_EnjoySettlementCenter</driverClass>
+    <reportString>thinking about us.</reportString>
+    <joyDuration>4000</joyDuration>
+    <joyMaxParticipants>3</joyMaxParticipants>
+    <joyKind>Meditative</joyKind>
+    <joySkill>Social</joySkill>
+    <joyXpPerTick>0.0015</joyXpPerTick>
+  </JobDef>
+</Defs>

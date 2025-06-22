@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <RoomRoleDef>
+    <defName>Museum</defName>
+    <label>Museum</label>
+    <description>A place of wonders of the past. A museum on its own gives no benefits but counts heavily toward the settlement score.</description>
+    <workerClass>DanielRenner.SettledIn.RoomRoleWorker_Museum</workerClass>
+    <!--<relatedStats>
+      <li>Beauty</li>
+      <li>Cleanliness</li>
+      <li>Wealth</li>
+      <li>Space</li>
+      <li>Impressiveness</li>
+    </relatedStats>-->
+  </RoomRoleDef>
+</Defs>

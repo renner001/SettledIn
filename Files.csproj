@@ -47,15 +47,36 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1.3\Defs\ThingDef\ThingDefs_SettledIn.xml" />
-    <Content Include="1.3\Defs\WorkGiverDef\WorkGivers_SettledIn.xml" />
-    <Content Include="1.3\Patches\Patch_FabricationBenchName.xml" />
+    <Content Include="1.5\Assemblies\SettledIn.dll" />
+    <Content Include="1.5\Defs\JobDef\JobDefs_SettledIn.xml" />
+    <Content Include="1.5\Defs\JoyGiverDef\JoyGiverDefs_SettledIn.xml" />
+    <Content Include="1.5\Defs\MainTabDef\MainTabDefs_SettledIn.xml" />
+    <Content Include="1.5\Defs\NeedDef\SettledIn_NeedDefs.xml" />
+    <Content Include="1.5\Defs\QuestDef\SettledIn_QuestDefs.xml" />
+    <Content Include="1.5\Defs\RecipeDef\SettledIn_RecipeDefs.xml" />
+    <Content Include="1.5\Defs\RitualDef\RitualUpgradeSettlementDef.xml" />
+    <Content Include="1.5\Defs\RoomRoleDef\RoomRoleDefs_SettledIn.xml" />
+    <Content Include="1.5\Defs\SoundDef\SettledIn_SoundDefs.xml" />
+    <Content Include="1.5\Defs\ThingDef\ThingDefs_SettledIn.xml" />
+    <Content Include="1.5\Defs\ThinkTreeDef\ThinkTreeDefs_SettledIn.xml" />
+    <Content Include="1.5\Defs\ThoughtDef\ThoughtDefs_SettledIn.xml" />
+    <Content Include="1.5\Defs\WorkGiverDef\WorkGivers_SettledIn.xml" />
+    <Content Include="1.5\Patches\Patches_Recipes.xml" />
+    <Content Include="1.5\Patches\Patch_SettlementUpgradeRitual.xml" />
+    <Content Include="1.5\Patches\Patch_FabricationBench.xml" />
+    <Content Include="1.5\Patches\Patch_PersonalizedWorkbenches.xml" />
+    <Content Include="1.5\Patches\Patch_SettlementManaging.xml" />
+    <Content Include="NoModManagerPatches\Defs\WorkTypeDefs\WorkType_Managing.xml" />
+    <Content Include="Textures\MenuIcon.png" />
+    <Content Include="Textures\Score.png" />
+    <Content Include="vfeproduction\Patches\Patch_pfeproduction.xml" />
     <Content Include="Languages\English\Keyed\keys.xml" />
     <Content Include="Languages\German\DefInjected\ResearchProjectDef\ResearchProjectDefs_Repeatable.xml" />
     <Content Include="Languages\German\Keyed\keys.xml" />
     <Content Include="Languages\German\LanguageInfo.xml" />
     <Content Include="About\About.xml" />
     <Content Include="About\Preview.png" />
+    <Content Include="LoadFolders.xml" />
     <Content Include="Steam\Images\AddLetterDropdown.png" />
     <Content Include="Steam\Images\AddLetterDropdown_Focus.png" />
     <Content Include="Steam\Images\AddLetterNewPart.png" />
@@ -67,25 +88,22 @@
     <Content Include="Steam\Images\LetterReceived_Focus.png" />
     <Content Include="Steam\Logo\Logo.png" />
     <Content Include="Steam\Logo\Logo_Base.png" />
+    <Content Include="Textures\RoomIcons\Generic.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="1.3\Assemblies\" />
-    <Folder Include="1.3\Defs\JobDef\" />
-    <Folder Include="1.3\Defs\MainTabDef\" />
-    <Folder Include="1.3\Defs\RecipeDef\" />
-    <Folder Include="1.3\Defs\RecordDef\" />
-    <Folder Include="1.3\Defs\ReseachProjectDef\" />
-    <Folder Include="1.3\Defs\Stats\" />
-    <Folder Include="1.3\Defs\ThinkTreeDef\" />
-    <Folder Include="1.3\Defs\ThoughtDef\" />
+    <Folder Include="1.5\Defs\RecordDef\" />
+    <Folder Include="1.5\Defs\ReseachProjectDef\" />
+    <Folder Include="1.5\Defs\Stats\" />
+    <Folder Include="1.5\Defs\WorkTypeDefs\" />
     <Folder Include="Languages\German\DefInjected\ThoughtDef\" />
-    <Folder Include="Textures\" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
     <None Include="LICENSE" />
     <None Include="README.md" />
     <None Include="Steam\Logo\Logo.pdn" />
+    <None Include="Textures\MenuIcon.pdn" />
+    <None Include="Textures\Score.pdn" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

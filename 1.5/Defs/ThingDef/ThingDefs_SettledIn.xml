@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- ArkTek FloorLight-->
+  <!--
+  <ThingDef ParentName="BuildingBase">
+    <defName>ArktechFloorPanel</defName>
+    <label>Arktech Floor Panel</label>
+    <description>Looks flashy and does absolutely nothing.</description>
+    <thingClass>Building</thingClass>
+    <drawerType>MapMeshOnly</drawerType>
+    <graphicData>
+      <texPath>ArktechFloorPanel/ArktechFloorPanel</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <damageData>
+        <rect>(0.3,0,5.4,6)</rect>
+      </damageData>
+    </graphicData>
+    <blockWind>false</blockWind>
+    <blockLight>false</blockLight>
+    <castEdgeShadows>false</castEdgeShadows>
+    <staticSunShadowHeight>0.2</staticSunShadowHeight>
+    <altitudeLayer>Conduits</altitudeLayer>
+    <passability>Standable</passability>
+    <scatterableOnMapGen>false</scatterableOnMapGen>
+    <fillPercent>1</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <Mass>50</Mass>
+      <MaxHitPoints>50</MaxHitPoints>
+      <WorkToBuild>1200</WorkToBuild>
+      <Flammability>0.0</Flammability>
+      <Beauty>20</Beauty>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <size>(2,2)</size>
+    <rotatable>false</rotatable>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Misc</designationCategory>
+    <constructionSkillPrerequisite>19</constructionSkillPrerequisite>
+    <costList>
+      <Steel>1</Steel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+        <glowColor>(90,90,90,0)</glowColor>
+      </li>
+    </comps>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+    </building>
+    <placeWorkers>
+      <li>DanielRenner.SettledIn.PlaceWorker_NextToSettlementCenter</li>
+    </placeWorkers>
+  </ThingDef>
+  -->
+  <!-- Arktek Personal Access Point -->
+  <!-- 
+  <ThingDef ParentName="FurnitureWithQualityBase" Class="DanielRenner.SettledIn.Building_ArktechPersonalAccessPointDef">
+    <defName>ArktechPersonalAccessPoint</defName>
+    <label>Arktech Personal Access Point (PAP)</label>
+    <description>The greatest Human Machine Interface ever invented. From a distance, it projects the UI directly into your visual sensory brain cells. Up close, it connects you with all your sensoric abilities into the Arktech Virtual Interface - a complete world of your own making just limited by your imagination. Witness the future now, witness the Arktech PAP.</description>
+    <thingClass>DanielRenner.SettledIn.Building_ArktechPersonalAccessPoint</thingClass>
+    <drawerType>RealtimeOnly</drawerType>
+    <graphicData>
+      <texPath>Building_Arktech_PAP/Arktech_PAP</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(5,5)</drawSize>
+      <damageData>
+        <rect>(0.3,0,5.4,6)</rect>
+      </damageData>
+    </graphicData>
+    <uiIconPath>Building_Arktech_PAP/Arktech_PAP</uiIconPath>
+    <uiIconScale>0.7</uiIconScale>
+    <blockWind>false</blockWind>
+    <blockLight>false</blockLight>
+    <castEdgeShadows>false</castEdgeShadows>
+    <staticSunShadowHeight>0.2</staticSunShadowHeight>
+    <altitudeLayer>Building</altitudeLayer>
+    <scatterableOnMapGen>false</scatterableOnMapGen>
+    <fillPercent>1</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <Mass>500</Mass>
+      <MaxHitPoints>500</MaxHitPoints>
+      <WorkToBuild>2400</WorkToBuild>
+      <Flammability>0.0</Flammability>
+      <Beauty>80</Beauty>
+      <JoyGainFactor>0.8</JoyGainFactor>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <size>(3,3)</size>
+    <rotatable>false</rotatable>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Misc</designationCategory>
+    <clearBuildingArea>false</clearBuildingArea>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <costStuffCount>100</costStuffCount>
+    <comps>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtFurniture</nameMaker>
+        <descriptionMaker>ArtDescription_Furniture</descriptionMaker>
+        <minQualityForArtistic>Awful</minQualityForArtistic>
+        <canBeEnjoyedAsArt>false</canBeEnjoyedAsArt>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+        <glowColor>(90,90,90,0)</glowColor>
+      </li>
+    </comps>
+    <building>
+      <joyKind>Meditative</joyKind>
+      <ai_chillDestination>true</ai_chillDestination>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+    </building>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <placeWorkers>
+      <li>DanielRenner.SettledIn.PlaceWorker_NextToSettlementCenter</li>
+    </placeWorkers>
+  </ThingDef>
+  -->
+  <!-- SettlementCenter -->
+  <ThingDef ParentName="FurnitureWithQualityBase" Class="DanielRenner.SettledIn.Building_SettlementCenterDef">
+    <defName>SettlementCenter</defName>
+    <label>settlement center</label>
+    <description>The centerpiece monument to represent the glorious achievements of your settlement.</description>
+    <thingClass>DanielRenner.SettledIn.Building_SettlementCenter</thingClass>
+    <drawerType>RealtimeOnly</drawerType>
+    <graphicData>
+      <texPath>Building_SettlementCenter/SettlementCenter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(7,7)</drawSize>
+      <!--<shadowData>
+        <volume>(6.03,1.0,5.25)</volume>
+        <offset>(0,0,-0.25)</offset>
+      </shadowData>-->
+      <damageData>
+        <rect>(0.3,0,5.4,6)</rect>
+      </damageData>
+      <!--<shadowData/>-->
+    </graphicData>
+    <blockWind>true</blockWind>
+    <blockLight>false</blockLight>
+    <castEdgeShadows>false</castEdgeShadows>
+    <!--<staticSunShadowHeight>1.0</staticSunShadowHeight>-->
+    <altitudeLayer>Building</altitudeLayer>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,1)</interactionCellOffset>
+    <!--<passability>Impassable</passability>-->
+    <pathCost>80</pathCost>
+    <scatterableOnMapGen>false</scatterableOnMapGen>
+    <fillPercent>1</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <Mass>750</Mass>
+      <MaxHitPoints>5000</MaxHitPoints>
+      <WorkToBuild>1200</WorkToBuild>
+      <Flammability>0.0</Flammability>
+      <Beauty>50</Beauty>
+      <JoyGainFactor>0.8</JoyGainFactor>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <size>(5,5)</size>
+    <rotatable>false</rotatable>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Misc</designationCategory>
+    <!--<designationHotKey>Misc6</designationHotKey>-->
+    <!--<constructionSkillPrerequisite>0</constructionSkillPrerequisite>-->
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <costStuffCount>100</costStuffCount>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_GlobalSettlementEffects"></li>
+      <li Class="DanielRenner.SettledIn.CompProperties_ClickBaiter"></li>
+      <li Class="DanielRenner.SettledIn.CompProperties_UpgradeSettlement"></li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtFurniture</nameMaker>
+        <descriptionMaker>ArtDescription_Furniture</descriptionMaker>
+        <minQualityForArtistic>Awful</minQualityForArtistic>
+        <canBeEnjoyedAsArt>true</canBeEnjoyedAsArt>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>7</glowRadius>
+        <glowColor>(255,255,255,0)</glowColor>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>DanielRenner.SettledIn.PlaceWorker_UniqueOnMap</li>
+    </placeWorkers>
+    <building>
+      <joyKind>Meditative</joyKind>
+      <ai_chillDestination>true</ai_chillDestination>
+      <!--<ai_chillDestination>true</ai_chillDestination>
+      <soundAmbient>GeothermalPlant_Ambience</soundAmbient>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>-->
+    </building>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <specialDisplayRadius>10.9</specialDisplayRadius>
+  </ThingDef>
+  <!-- TableSettlementOffice -->
+  <ThingDef ParentName="BenchBase">
+    <defName>TableSettlementOffice</defName>
+    <label>settlement office table</label>
+    <thingClass>DanielRenner.SettledIn.Building_TableSettlementOffice</thingClass>
+    <description>A table that allows organizing the daily troubles of larger settlements to achieve a fast-working community.</description>
+    <graphicData>
+      <texPath>Building_TableSettlementOffice/TableSettlementOffice</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,2)</drawSize>
+      <shaderType>Cutout</shaderType>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <stuffCategories>
+      <li>Woody</li>
+      <li>Stony</li>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>100</costStuffCount>
+    <costList>
+      <Silver>10</Silver>
+    </costList>
+    <altitudeLayer>Building</altitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    <useHitPoints>True</useHitPoints>
+    <statBases>
+      <WorkToBuild>2000</WorkToBuild>
+      <MaxHitPoints>180</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <Cleanliness>0</Cleanliness>
+    </statBases>
+    <size>(3,2)</size>
+    <designationCategory>Production</designationCategory>
+    <passability>PassThroughOnly</passability>
+    <pathCost>60</pathCost>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <!--<inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>-->
+    <!--<building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>-->
+    <comps>
+      <!-- <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>ToolCabinet</li>
+        </linkableFacilities>
+      </li>-->
+      <!--<li>
+        <compClass>CompQuality</compClass>
+      </li>-->
+    </comps>
+    <researchPrerequisites>
+      <li>Stonecutting</li>
+    </researchPrerequisites>
+    <placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+  </ThingDef>
+  <!-- WardeningSpot -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>WardeningSpot</defName>
+    <label>wardening spot</label>
+    <thingClass>DanielRenner.SettledIn.Building_TableSettlementOffice</thingClass>
+    <description>A spot for standing guard at. Standing guard here improves the settlement buffer.</description>
+    <rotatable>true</rotatable>
+    <graphicData>
+      <texPath>Building_WardeningSpot/WardeningSpot</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+    </graphicData>
+    <altitudeLayer>FloorEmplacement</altitudeLayer>
+    <statBases>
+      <WorkToBuild>0</WorkToBuild>
+    </statBases>
+    <scatterableOnMapGen>false</scatterableOnMapGen>
+    <useHitPoints>False</useHitPoints>
+    <designationCategory>Misc</designationCategory>
+    <uiOrder>2000</uiOrder>
+    <passability>Standable</passability>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,0)</interactionCellOffset>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_AssignableToPawn_ProductionBuilding">
+        <drawAssignmentOverlay>true</drawAssignmentOverlay>
+        <drawUnownedAssignmentOverlay>true</drawUnownedAssignmentOverlay>
+        <maxAssignedPawnsCount>3</maxAssignedPawnsCount>
+      </li>
+    </comps>
+    <building>
+      <sowTag>SupportPlantsOnly</sowTag>
+      <canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+      <ai_chillDestination>false</ai_chillDestination>
+      <wakeDormantPawnsOnConstruction>false</wakeDormantPawnsOnConstruction>
+      <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+  </ThingDef>
+  <!-- Commodity -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>Commodity</defName>
+    <label>commodity</label>
+    <description>Traders as colonists alike love to get commodities. They are willing to find silver in the deepest hidden pockets to emburse you for them.</description>
+    <graphicData>
+      <texPath>Commodity/Commodity</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>First</resourceReadoutPriority>
+    <soundInteract>Silver_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <resourceReadoutAlwaysShow>true</resourceReadoutAlwaysShow>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>0.4</Flammability>
+      <DeteriorationRate>4</DeteriorationRate>
+      <MarketValue>400</MarketValue>
+      <Mass>0.24</Mass>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <stackLimit>50</stackLimit>
+    <smallVolume>true</smallVolume>
+    <deepCommonality>0.1</deepCommonality>
+    <deepCountPerPortion>10</deepCountPerPortion>
+    <deepLumpSizeRange>2~10</deepLumpSizeRange>
+    <burnableByRecipe>false</burnableByRecipe>
+    <smeltable>false</smeltable>
+    <possessionCount>10</possessionCount>
+    <tradeTags>
+      <li>ExoticMisc</li>
+      <li>Art</li>
+    </tradeTags>
+    <thingSetMakerTags>
+      <li>RewardStandardCore</li>
+    </thingSetMakerTags>
+    <allowedArchonexusCount>1000</allowedArchonexusCount>
+  </ThingDef>
+</Defs>

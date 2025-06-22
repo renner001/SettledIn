@@ -9,7 +9,7 @@ using Verse;
 
 namespace DanielRenner.SettledIn
 {
-    class Building_PersonalizedFabricationBench : Building_WorkTable
+    class Building_PersonalizedWorkTable : Building_WorkTable
     {
 
         public CompAssignableToPawn CompAssignableToPawn => GetComp<CompAssignableToPawn>();
@@ -17,12 +17,12 @@ namespace DanielRenner.SettledIn
         public override void PostMake()
         {
             base.PostMake();
-            Log.Debug("Building_PersonalizedFabricationBench.PostMake(): personalized fabrication bench was built");
+            Log.Debug("Building_PersonalizedWorkTable.PostMake(): personalized fabrication bench was built");
         }
 
         public override void DrawGUIOverlay()
         {
-            Log.Debug("Building_PersonalizedFabricationBench.DrawGUIOverlay() called");
+            Log.DebugOnce("Building_PersonalizedWorkTable.DrawGUIOverlay() is getting called...");
             base.DrawGUIOverlay();
             if (Find.CameraDriver.CurrentZoom != 0) // only render on close zoom
             {
@@ -30,7 +30,7 @@ namespace DanielRenner.SettledIn
             }
             if (CompAssignableToPawn == null || CompAssignableToPawn.AssignedPawnsForReading == null)
             {
-                Log.Error("Building_PersonalizedFabricationBench: missing CompAssignableToPawn!");
+                Log.Error("Building_PersonalizedWorkTable: missing CompAssignableToPawn!");
                 return;
             }
             Color defaultThingLabelColor = GenMapUI.DefaultThingLabelColor;

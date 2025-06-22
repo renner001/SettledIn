@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- BeenConstructingLately -->
+  <ThoughtDef>
+    <defName>BeenConstructingLately</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <!--<nullifyingPrecepts>
+      <li MayRequire="Ludeon.RimWorld.Ideology">RoughLiving_Welcomed</li>
+    </nullifyingPrecepts>-->
+    <stages>
+      <li>
+        <label>Our settlement is stagnating</label>
+        <description>I like build base!</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>Our settlement is growing</label>
+        <description>I like build base!</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- RecreationSchedule -->
+  <ThoughtDef>
+    <defName>RecreationSchedule</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <!--<nullifyingPrecepts>
+      <li MayRequire="Ludeon.RimWorld.Ideology">RoughLiving_Welcomed</li>
+    </nullifyingPrecepts>-->
+    <stages>
+      <li>
+        <label>Worst recreation schedule</label>
+        <description>Always being on hot-standby for work is so tiring</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+      <li>
+        <label>Really bad recreation schedule</label>
+        <description>Always being on hot-standby for work is so tiring. Only 1 hour of recreation scheduled.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li>
+        <label>Bad recreation schedule</label>
+        <description>Always being on hot-standby for work is so tiring. Only 2 hour of recreation scheduled.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>Somewhat bad recreation schedule</label>
+        <description>Always being on hot-standby for work is so tiring. Only 3 hour of recreation scheduled.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+      <li>
+        <label>Recreation schedule could be better</label>
+        <description>4 hour of recreation are "OK-ish" I guess.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+      <li>
+        <label>Average recreation schedule</label>
+        <description>A well-rounded schedule</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+      <li>
+        <label>Nice recreation schedule</label>
+        <description>6 hours of recreation are fine.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>Fine recreation schedule</label>
+        <description>7 hours of recreation are fine.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+      <li>
+        <label>Good recreation schedule</label>
+        <description>8 hours of recreation are fine.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>Great recreation schedule</label>
+        <description>9 hours of recreation are more than most people have.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>Awesome recreation schedule</label>
+        <description>10 hours of recreation are more than most people have.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>Extreme recreation schedule</label>
+        <description>11 hours of recreation are more than most people have.</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>Extreme recreation schedule</label>
+        <description>12 hours of recreation are more than most people have.</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>Extreme recreation schedule</label>
+        <description>13 hours of recreation are more than most people have.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+      <li>
+        <label>Extreme recreation schedule</label>
+        <description>So much recreation!</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- UnlikedNeightbour -->
+  <ThoughtDef>
+    <defName>UnlikedNeightbour</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>Unliked Neightbour</label>
+        <description>I don't like my neightbour. Can't our beds be further apart?</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- WantCommodities -->
+  <ThoughtDef>
+    <defName>WantCommodities</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>Want commodities</label>
+        <description>I want to buy some commodities. Can't we craft or trade for any?</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- UnlikedPrisonNeightbour -->
+  <ThoughtDef>
+    <defName>UnlikedPrisonNeightbour</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>Unliked Prison Nearby</label>
+        <description>I don't like living next to a prison. Can't my bed be farther from the prison?</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- LongCommutes -->
+  <ThoughtDef>
+    <defName>LongCommutes</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>Long Commutes</label>
+        <description>I have to walk so far all day</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- OwnsNoPersonalWorkbench -->
+  <ThoughtDef>
+    <defName>OwnsNoPersonalWorkbench</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <!--<nullifyingPrecepts>
+      <li MayRequire="Ludeon.RimWorld.Ideology">RoughLiving_Welcomed</li>
+    </nullifyingPrecepts>-->
+    <stages>
+      <li>
+        <label>I want my own work bench</label>
+        <description>To apply my full skills I want my private work bench to work on</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- WorkedOnPersonalWorkbench -->
+  <ThoughtDef>
+    <defName>WorkedOnPersonalWorkbench</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <!--<nullifyingPrecepts>
+      <li MayRequire="Ludeon.RimWorld.Ideology">RoughLiving_Welcomed</li>
+    </nullifyingPrecepts>-->
+    <stages>
+      <li>
+        <label>My own place to work</label>
+        <description>I got to work on my private workbench</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- WorkedOnPublicWorkbench -->
+  <ThoughtDef>
+    <defName>WorkedOnPublicWorkbench</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <!--<nullifyingPrecepts>
+      <li MayRequire="Ludeon.RimWorld.Ideology">RoughLiving_Welcomed</li>
+    </nullifyingPrecepts>-->
+    <stages>
+      <li>
+        <label>Messy Workbench</label>
+        <description>I had to share my workbench. They never put back the tools where they belong!</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- FewAssignedPriorities -->
+  <ThoughtDef>
+    <defName>FewAssignedPriorities</defName>
+    <durationDays>0.5</durationDays>
+    <stackLimit>1</stackLimit>
+    <!--<nullifyingPrecepts>
+      <li MayRequire="Ludeon.RimWorld.Ideology">RoughLiving_Welcomed</li>
+    </nullifyingPrecepts>-->
+    <stages>
+      <li>
+        <label>I can focus on my work</label>
+        <description>Just meh. Less assigned work priorities will make me happy.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+      <li>
+        <label>I can focus on my work 1</label>
+        <description>I can focus on my work, as I have only few tasks assigned.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+      <li>
+        <label>I can focus on my work 2</label>
+        <description>I can focus on my work, as I have only few tasks assigned.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>I can focus on my work 3</label>
+        <description>I can focus on my work, as I have only few tasks assigned.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>I can focus on my work 4</label>
+        <description>I can focus on my work, as I have only few tasks assigned.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+      <li>
+        <label>I can focus on my work 5</label>
+        <description>I can focus on my work, as I have only few tasks assigned.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>I can focus on my work 6</label>
+        <description>I can focus on my work, as I have only few tasks assigned.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>I can focus on my work 7</label>
+        <description>I can focus on my work, as I have only few tasks assigned.</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>I can focus on my work 8</label>
+        <description>I can focus on my work, as I have only few tasks assigned.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- ManyAssignedPriorities -->
+  <ThoughtDef>
+    <defName>ManyAssignedPriorities</defName>
+    <durationDays>0.5</durationDays>
+    <stackLimit>1</stackLimit>
+    <!--<nullifyingPrecepts>
+      <li MayRequire="Ludeon.RimWorld.Ideology">RoughLiving_Welcomed</li>
+    </nullifyingPrecepts>-->
+    <stages>
+      <li>
+        <label>Where should I start?</label>
+        <description>Just meh. More work priorities and I will loose it.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+      <li>
+        <label>Where should I start? 1</label>
+        <description>I cannot focus on my work, as I have so many tasks assigned.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+      <li>
+        <label>Where should I start? 2</label>
+        <description>I cannot focus on my work, as I have so many tasks assigned.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+      <li>
+        <label>Where should I start? 3</label>
+        <description>I cannot focus on my work, as I have so many tasks assigned.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>Where should I start? 4</label>
+        <description>I cannot focus on my work, as I have so many tasks assigned.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li>
+        <label>Where should I start? 5</label>
+        <description>I cannot focus on my work, as I have so many tasks assigned.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+      <li>
+        <label>Where should I start? 6</label>
+        <description>I cannot focus on my work, as I have so many tasks assigned.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+      <li>
+        <label>Where should I start? 7</label>
+        <description>I cannot focus on my work, as I have so many tasks assigned.</description>
+        <baseMoodEffect>-7</baseMoodEffect>
+      </li>
+      <li>
+        <label>Where should I start? 8</label>
+        <description>I cannot focus on my work, as I have so many tasks assigned.</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+      <li>
+        <label>Where should I start? 9</label>
+        <description>I cannot focus on my work, as I have so many tasks assigned.</description>
+        <baseMoodEffect>-9</baseMoodEffect>
+      </li>
+      <li>
+        <label>Where should I start? 10</label>
+        <description>I cannot focus on my work, as I have so many tasks assigned.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

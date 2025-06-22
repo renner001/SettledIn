@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThinkTreeDef>
+    <defName>CollectCommodities</defName>
+    <insertTag>Humanlike_PreMain</insertTag>
+    <insertPriority>100</insertPriority>
+    <thinkRoot Class="DanielRenner.SettledIn.JobGiver_CollectCommodities" />
+  </ThinkTreeDef>
+</Defs>

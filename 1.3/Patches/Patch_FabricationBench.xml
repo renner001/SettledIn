@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <!--<Operation Class="PatchOperationAttributeSet">
+    <xpath>/Defs/ThingDef[defName="FabricationBench"]</xpath>
+    <attribute>Name</attribute>
+    <value>FabricationBench</value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[@Name = "BodyPartBionicBase"]/recipeMaker/recipeUsers</xpath>
+    <value>
+      <li>PersonalizedFabricationBench</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[@Name = "ApparelArmorHelmetPowerBase"]/recipeMaker/recipeUsers</xpath>
+    <value>
+      <li>PersonalizedFabricationBench</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[@Name = "ApparelArmorHelmetReconBase"]/recipeMaker/recipeUsers</xpath>
+    <value>
+      <li>PersonalizedFabricationBench</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[@Name = "ApparelArmorPowerBase"]/recipeMaker/recipeUsers</xpath>
+    <value>
+      <li>PersonalizedFabricationBench</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[@Name = "ApparelArmorReconBase"]/recipeMaker/recipeUsers</xpath>
+    <value>
+      <li>PersonalizedFabricationBench</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "Gun_ChargeRifle"]/recipeMaker/recipeUsers</xpath>
+    <value>
+      <li>PersonalizedFabricationBench</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "Gun_ChargeLance"]/recipeMaker/recipeUsers</xpath>
+    <value>
+      <li>PersonalizedFabricationBench</li>
+    </value>
+  </Operation>-->
+</Patch>

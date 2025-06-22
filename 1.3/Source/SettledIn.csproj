@@ -65,13 +65,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Building_PersonalizedFabricationBench.cs" />
+    <Compile Include="Building_PersonalizedWorkTable.cs" />
     <Compile Include="CompAssignableToPawn_ProductionBuilding.cs" />
+    <Compile Include="CompProperties_AssignableToPawn.cs" />
     <Compile Include="DefOfs_SettledIn.cs" />
+    <Compile Include="GameComponent_SettlementScoreManager.cs" />
+    <Compile Include="MainTabWindow_SettlementScores.cs" />
     <Compile Include="ModSettings_SettledIn.cs" />
     <Compile Include="Mod_SettledIn.cs" />
     <Compile Include="Log.cs" />
+    <Compile Include="Patch_StockGenerator_SingleDef_GenerateThings.cs" />
+    <Compile Include="Patch_WorkGiver_DoBill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomNameUtility.cs" />
+    <Compile Include="RoomRoleWorker_Museum.cs" />
+    <Compile Include="SettlementScoreUtility.cs" />
+    <Compile Include="StatPart_WorkTablePersonalized.cs" />
     <Compile Include="Textures_SettledIn.cs" />
     <Compile Include="Translations_SettledIn.cs" />
     <Compile Include="WorkGiver_DoBillPersonalized.cs" />

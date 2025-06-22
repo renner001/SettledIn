@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  <!--<Wages.SettingsPanel>Wages</Wages.SettingsPanel>
-  <Wages.SettingsPanelChangeSettingsEffect>All settings will take effect after a few in-game minutes. A restart is not necessary.</Wages.SettingsPanelChangeSettingsEffect>-->
+  <SettledIn.SettingsPanel>Settled In</SettledIn.SettingsPanel>
+  <SettledIn.SettingsPanelChangeSettingsEffect>All settings will take effect after a few in-game minutes. A restart is not necessary.</SettledIn.SettingsPanelChangeSettingsEffect>
+  <SettledIn.ImmigrantMessage>Immigrant: {PAWN_nameDef}</SettledIn.ImmigrantMessage>
+  <SettledIn.ImmigrationDescription>Immigration: A {PAWN_title} named {PAWN_nameDef} was lured by stories of your settlement and wants to join the colony.</SettledIn.ImmigrationDescription>
+  <DanielRenner.SettledIn.UpgradeSettlementLabel>Upgrade</DanielRenner.SettledIn.UpgradeSettlementLabel>
+  <DanielRenner.SettledIn.UpgradeSettlementDescription>Upgrade the settlement to the next level. Check the Settlement tab for update requirements.</DanielRenner.SettledIn.UpgradeSettlementDescription>
+  <DanielRenner.SettledIn.UpgradeDeactivated>Requirements not fulfilled. Check Settlement Tab for details.</DanielRenner.SettledIn.UpgradeDeactivated>
+  <DanielRenner.SettledIn.SettlementCenterReportChiseling>Chiseling away.</DanielRenner.SettledIn.SettlementCenterReportChiseling>
+  <DanielRenner.SettledIn.SettlementCenterReportStanding>Thinking about us.</DanielRenner.SettledIn.SettlementCenterReportStanding>
+  <DanielRenner.SettledIn.SettlementCenterReportLookingAt>Reading stories.</DanielRenner.SettledIn.SettlementCenterReportLookingAt>
+  <DanielRenner.SettledIn.CannotPlaceMoreThanOnce>Same building already exists on this map.</DanielRenner.SettledIn.CannotPlaceMoreThanOnce>
+  <DanielRenner.SettledIn.MustBeNextToSettlementCenter>Not close enough to the settlement center.</DanielRenner.SettledIn.MustBeNextToSettlementCenter>
+  
+  <!-- settlement alert-->
+  <DanielRenner.SettledIn.SettlementAlertLabel>Settlement not optimal</DanielRenner.SettledIn.SettlementAlertLabel>
+  <DanielRenner.SettledIn.SettlementAlertExplanationHead>There are troubles in your settlement layout (refreshes around midnight)</DanielRenner.SettledIn.SettlementAlertExplanationHead>
+  <DanielRenner.SettledIn.SettlementAlertExplanationHasUnlikedNeighbours>Neighbourhood troubles:</DanielRenner.SettledIn.SettlementAlertExplanationHasUnlikedNeighbours>
+  <DanielRenner.SettledIn.SettlementAlertExplanationLongCommuters>Complaints about too long commutes: </DanielRenner.SettledIn.SettlementAlertExplanationLongCommuters>
+  <DanielRenner.SettledIn.SettlementAlertExplanationWantsWorkbench>Private work bench wished: </DanielRenner.SettledIn.SettlementAlertExplanationWantsWorkbench>
+  <DanielRenner.SettledIn.SettlementAlertExplanationWantsFewerTasks>Burn-out complaints: </DanielRenner.SettledIn.SettlementAlertExplanationWantsFewerTasks>
+  <DanielRenner.SettledIn.SettlementAlertExplanationWantsMoreRecreation>Violations against sufficient recreation times: </DanielRenner.SettledIn.SettlementAlertExplanationWantsMoreRecreation>
+
+  <!-- settlement center gizmos -->
+  <DanielRenner.SettledIn.GizmoOpenSettlementTabLabel>Open settlement tab</DanielRenner.SettledIn.GizmoOpenSettlementTabLabel>
+  <DanielRenner.SettledIn.GizmoOpenSettlementTabDescription>The settlement tab displays details on your settlement level and unlocked bonus.</DanielRenner.SettledIn.GizmoOpenSettlementTabDescription>
+  <DanielRenner.SettledIn.GizmoIsPrisonFarAwayLabel>Break Resistance</DanielRenner.SettledIn.GizmoIsPrisonFarAwayLabel>
+  <DanielRenner.SettledIn.GizmoIsPrisonFarAwayDescription>Immediately reduce the resistance of a random prisoner to 0.</DanielRenner.SettledIn.GizmoIsPrisonFarAwayDescription>
+  <DanielRenner.SettledIn.GizmoIsPrisonFarAwayDisabledReason>Your Prisons must be at least 30 tiles away from any bedrooms and requires 75% settlement buffer.</DanielRenner.SettledIn.GizmoIsPrisonFarAwayDisabledReason>
+  <DanielRenner.SettledIn.GizmoBreakingWillLabel>Break Will</DanielRenner.SettledIn.GizmoBreakingWillLabel>
+  <DanielRenner.SettledIn.GizmoBreakingWillDescription>Immediately converts a random colonist or prisoner to your primary ideoligion.</DanielRenner.SettledIn.GizmoBreakingWillDescription>
+  <DanielRenner.SettledIn.GizmoBreakingWillDisabledReason>Requires 75% settlement buffer</DanielRenner.SettledIn.GizmoBreakingWillDisabledReason>
+  <DanielRenner.SettledIn.GizmoOnCooldown>On cooldown</DanielRenner.SettledIn.GizmoOnCooldown>
+  <DanielRenner.SettledIn.GizmoIncreaseSkillLabel>Learn Random Skills</DanielRenner.SettledIn.GizmoIncreaseSkillLabel>
+  <DanielRenner.SettledIn.GizmoIncreaseSkillDescription>Grant a random pawn 2500 experience in a random skill. Requires 50% or settlement buffer.</DanielRenner.SettledIn.GizmoIncreaseSkillDescription>
+  <DanielRenner.SettledIn.GizmoIncreaseSkillDisabledReason>Requires 50% settlement buffer</DanielRenner.SettledIn.GizmoIncreaseSkillDisabledReason>
+  <DanielRenner.SettledIn.GizmoWalkSpeedLabel>Toggle Walk Speed</DanielRenner.SettledIn.GizmoWalkSpeedLabel>
+  <DanielRenner.SettledIn.GizmoWalkSpeedDescription>Increase the walk speed of all pawns to x2 as long as there is settlement buffer left to consume.</DanielRenner.SettledIn.GizmoWalkSpeedDescription>
+  <DanielRenner.SettledIn.GizmoWalkSpeedReason>should never show</DanielRenner.SettledIn.GizmoWalkSpeedReason>
+  <DanielRenner.SettledIn.GizmoCallTraderLabel>Lure trader</DanielRenner.SettledIn.GizmoCallTraderLabel>
+  <DanielRenner.SettledIn.GizmoCallTraderDescription>Lures a trader to the settlement. Costs 50% settlement buffer.</DanielRenner.SettledIn.GizmoCallTraderDescription>
+  <DanielRenner.SettledIn.GizmoCallTraderReason>Costs 50% settlement buffer.</DanielRenner.SettledIn.GizmoCallTraderReason>
+  <DanielRenner.SettledIn.GizmoMagicTraderRestockLabel>Restock Trader</DanielRenner.SettledIn.GizmoMagicTraderRestockLabel>
+  <DanielRenner.SettledIn.GizmoMagicTraderRestockDescription>Restock the resident trader. Costs 25% settlement buffer.</DanielRenner.SettledIn.GizmoMagicTraderRestockDescription>
+  <DanielRenner.SettledIn.GizmoNotEnoughBuffer>Not enough settlement buffer.</DanielRenner.SettledIn.GizmoNotEnoughBuffer>
+  <DanielRenner.SettledIn.GizmoMagicTraderLabel>Trade with resident stock</DanielRenner.SettledIn.GizmoMagicTraderLabel>
+  <DanielRenner.SettledIn.GizmoMagicTraderDescription>Your settlement is awesome! There is a local resident stock of trade goods being stored here now and you can trade at will. Resident traders restock every first of a quadrum.</DanielRenner.SettledIn.GizmoMagicTraderDescription>
+  
+  
+  <DanielRenner.SettledIn.MagicTraderRestocked>Our resident trader restocked!</DanielRenner.SettledIn.MagicTraderRestocked>
+
+  <DanielRenner.SettledIn.Gizmo_SettlementBufferSliderTitle>Settlement Buffer</DanielRenner.SettledIn.Gizmo_SettlementBufferSliderTitle>
+  <DanielRenner.SettledIn.Gizmo_SettlementBufferSliderTooltip>Resource is used to pay for settlement abilities and generated by managing at the settlement table and other settlement buildings.</DanielRenner.SettledIn.Gizmo_SettlementBufferSliderTooltip>
+
+  
+  <!-- other keys -->
+  <DanielRenner.SettledIn.SettlementTraderName>Resident Trade Stock</DanielRenner.SettledIn.SettlementTraderName>
+  <SettledIn.RequirementsNotMet>Requirements not met\n</SettledIn.RequirementsNotMet>
+  
+  
+  <!-- benefit explanations -->
+  <DanielRenner.SettledIn.BenefitSettlementCenter>The settlement center is a source of beauty and recreation for early settlements.</DanielRenner.SettledIn.BenefitSettlementCenter>
+  <DanielRenner.SettledIn.BenefitImmigrants>Whispers of a new place to live are spreading. Immigrants will show up at your doorstep. The chances for immigrants are scaling with the wealth of your colony. \n{CHANCE}% daily chance</DanielRenner.SettledIn.BenefitImmigrants>
+  <DanielRenner.SettledIn.BenefitCommodityConsumption>Colonists will start their side-hustles whenever you don't look. They will be ready to pay you handsomely for commodities you provide to them.\nColonists will roughly consume one commodity per day.</DanielRenner.SettledIn.BenefitCommodityConsumption>
+  <DanielRenner.SettledIn.BenefitTraderStock>Your colony starts to prosper. Traders visiting your colony will plan for this and have a larger stock of items and silver.\n+{QUANTITY}% inventory\n\nYou also gain access to a resident trade stock through the saettlement center that they keep in this city permanently granting you access to a trader at all times. Restock is every quadrum.</DanielRenner.SettledIn.BenefitTraderStock>
+  <DanielRenner.SettledIn.BenefitColonistFocus>Our people demand work-life-balance: They want to worry about less tasks and specialize.\nAll colonists get a flat mood buff or debuff based on the amount of work priorities assigned. Assigning less than half of the available work types yields a buff.</DanielRenner.SettledIn.BenefitColonistFocus>
+  <DanielRenner.SettledIn.BenefitRoomFocus>Dedicating rooms to a single purpose will increase the quality of produced items. 25% chance of increasing the quality by 1 if items are produced inside a smithy, stoneworks, artwork studio, machining lab or tailor shop.</DanielRenner.SettledIn.BenefitRoomFocus>
+  <DanielRenner.SettledIn.BenefitPersonalWorkbench>Personalized Workbenches will improve the work speed of your workers.</DanielRenner.SettledIn.BenefitPersonalWorkbench>
+  <DanielRenner.SettledIn.BenefitManagedSettlements>Your colonists will have settlement layout related moods:\nThey want to sleep far away from neighbours they dislike. They demand their own personal work benches once their skill reaches level 8.\nThey want short travel times to their work benches and beds.\nMoods are updated once a day at midnight.</DanielRenner.SettledIn.BenefitManagedSettlements>
+  <DanielRenner.SettledIn.BenefitWalkSpeed>Regularly managing all the busy bees in our colony on a Settlement Office Table pays off with 50% faster walking speed.\n Colonists managing at the Settlement Management Table produce a walk speed bonus for the entire settlement. One colonist managing in full-time is able to support 8 other colonists with a permanent speed boost.</DanielRenner.SettledIn.BenefitWalkSpeed>
+  <DanielRenner.SettledIn.BenefitCozyRooms>Who needs large rooms, if we have so many of them? We can live with smaller rooms! Cramped mood is removed.</DanielRenner.SettledIn.BenefitCozyRooms>
+  <DanielRenner.SettledIn.BenefitTidySettlements>The end to filth. Will regularly clean a little filth on the map.</DanielRenner.SettledIn.BenefitTidySettlements>
+  <DanielRenner.SettledIn.BenefitRecreationFocus>Shorter work schedules increase the mood of our people. Less than 5 hours of recreation a day will make them cranky.</DanielRenner.SettledIn.BenefitRecreationFocus>
+  <DanielRenner.SettledIn.BenefitGreatHalls>We learned how to stabilize even the greatest rooms. Never again will our roofs collapse for being too far from supports.</DanielRenner.SettledIn.BenefitGreatHalls>
+  <DanielRenner.SettledIn.BenefitPristineClothing>The days of complicated tailoring and wearing rules for torn apparel are beneath the glory of our settlement! Apparel worn by colonists slowly repairs itself.</DanielRenner.SettledIn.BenefitPristineClothing>
+
+
 </LanguageData>

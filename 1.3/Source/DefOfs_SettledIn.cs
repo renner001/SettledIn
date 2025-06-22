@@ -12,6 +12,7 @@ namespace DanielRenner.SettledIn
     public static class DefOfs_SettledIn
     {
         //public static RecordDef TotalWagesOwed;
+        public static RoomRoleDef Museum;
 
     }
 }

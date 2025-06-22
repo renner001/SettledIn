@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- CommodityNeed -->
+  <NeedDef>
+    <defName>Commodity</defName>
+    <needClass>DanielRenner.SettledIn.CommodityNeed</needClass>
+    <label>commodities</label>
+    <description>Commodities represents the urge for cold hard material wants. Pawns wanting for commodities will search out and consume commodities and leave a hefty payment in silver behind.</description>
+    <showOnNeedList>true</showOnNeedList>
+    <minIntelligence>Humanlike</minIntelligence>
+    <listPriority>10</listPriority>
+    <colonistsOnly>true</colonistsOnly>
+    <neverOnPrisoner>true</neverOnPrisoner>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+  </NeedDef>
+</Defs>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <!--
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "VFE_TableButcherElectric"]/comps</xpath>
+    <value>
+      <li Class="DanielRenner.SettledIn.CompProperties_AssignableToPawn_ProductionBuilding">
+        <drawAssignmentOverlay>true</drawAssignmentOverlay>
+        <drawUnownedAssignmentOverlay>false</drawUnownedAssignmentOverlay>
+        <maxAssignedPawnsCount>1</maxAssignedPawnsCount>
+      </li >
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "VFE_TableButcherElectric"]</xpath>
+    <value>
+      <drawGUIOverlay>true</drawGUIOverlay>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "VFE_TableDrugLabElectric"]/comps</xpath>
+    <value>
+      <li Class="DanielRenner.SettledIn.CompProperties_AssignableToPawn_ProductionBuilding">
+        <drawAssignmentOverlay>true</drawAssignmentOverlay>
+        <drawUnownedAssignmentOverlay>false</drawUnownedAssignmentOverlay>
+        <maxAssignedPawnsCount>1</maxAssignedPawnsCount>
+      </li >
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "VFE_TableDrugLabElectric"]</xpath>
+    <value>
+      <drawGUIOverlay>true</drawGUIOverlay>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "VFE_FueledSmelter"]/comps</xpath>
+    <value>
+      <li Class="DanielRenner.SettledIn.CompProperties_AssignableToPawn_ProductionBuilding">
+        <drawAssignmentOverlay>true</drawAssignmentOverlay>
+        <drawUnownedAssignmentOverlay>false</drawUnownedAssignmentOverlay>
+        <maxAssignedPawnsCount>1</maxAssignedPawnsCount>
+      </li >
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "VFE_FueledSmelter"]</xpath>
+    <value>
+      <drawGUIOverlay>true</drawGUIOverlay>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "VFE_TableStonecutterElectric"]/comps</xpath>
+    <value>
+      <li Class="DanielRenner.SettledIn.CompProperties_AssignableToPawn_ProductionBuilding">
+        <drawAssignmentOverlay>true</drawAssignmentOverlay>
+        <drawUnownedAssignmentOverlay>false</drawUnownedAssignmentOverlay>
+        <maxAssignedPawnsCount>1</maxAssignedPawnsCount>
+      </li >
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "VFE_TableStonecutterElectric"]</xpath>
+    <value>
+      <drawGUIOverlay>true</drawGUIOverlay>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "VFE_TableStonecutterElectric"]/comps</xpath>
+    <value>
+      <li Class="DanielRenner.SettledIn.CompProperties_AssignableToPawn_ProductionBuilding">
+        <drawAssignmentOverlay>true</drawAssignmentOverlay>
+        <drawUnownedAssignmentOverlay>false</drawUnownedAssignmentOverlay>
+        <maxAssignedPawnsCount>1</maxAssignedPawnsCount>
+      </li >
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "VFE_TableStonecutterElectric"]</xpath>
+    <value>
+      <drawGUIOverlay>true</drawGUIOverlay>
+    </value>
+  </Operation>
+  -->
+</Patch>

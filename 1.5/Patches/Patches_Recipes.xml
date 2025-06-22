@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <!-- food related -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "ElectricStove"]/recipes</xpath>
+    <value>
+      <li>Make_FoodCommodities</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "FueledStove"]/recipes</xpath>
+    <value>
+      <li>Make_FoodCommodities</li>
+    </value>
+  </Operation>
+  <!-- machining related -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "FabricationBench"]/recipes</xpath>
+    <value>
+      <li>Make_SteelCommodities</li>
+      <li>Make_WoodCommodities</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "ElectricSmelter"]/recipes</xpath>
+    <value>
+      <li>Make_SteelCommodities</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "TableMachining"]/recipes</xpath>
+    <value>
+      <li>Make_SteelCommodities</li>
+      <li>Make_WoodCommodities</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName = "ElectricSmithy"]/recipes</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName = "ElectricSmithy"]</xpath>
+      <value>
+        <recipes />
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "ElectricSmithy"]/recipes</xpath>
+    <value>
+      <li>Make_SteelCommodities</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName = "FueledSmithy"]/recipes</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName = "FueledSmithy"]</xpath>
+      <value>
+        <recipes />
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "FueledSmithy"]/recipes</xpath>
+    <value>
+      <li>Make_SteelCommodities</li>
+    </value>
+  </Operation>
+  <!-- textiles -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName = "HandTailoringBench"]/recipes</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName = "HandTailoringBench"]</xpath>
+      <value>
+        <recipes />
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "HandTailoringBench"]/recipes</xpath>
+    <value>
+      <li>Make_TextilesCommodities</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName = "ElectricTailoringBench"]/recipes</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName = "ElectricTailoringBench"]</xpath>
+      <value>
+        <recipes />
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "ElectricTailoringBench"]/recipes</xpath>
+    <value>
+      <li>Make_TextilesCommodities</li>
+    </value>
+  </Operation>
+</Patch>

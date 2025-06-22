@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DanielRenner.SettledIn
 {
-	static class Log
+	public static class Log
 	{
 		const string LOG_PREFIX = "DanielRenner.SettledIn: ";
 		static List<int> onceDebugKeys = new List<int>();

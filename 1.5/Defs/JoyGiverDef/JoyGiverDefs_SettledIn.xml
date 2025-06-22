@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- EnjoySettlementCenter -->
+  <JoyGiverDef>
+    <defName>EnjoySettlementCenter</defName>
+    <giverClass>DanielRenner.SettledIn.JoyGiver_EnjoySettlementCenter</giverClass>
+    <baseChance>3</baseChance>
+    <jobDef>EnjoySettlementCenter</jobDef>
+    <joyKind>Meditative</joyKind>
+  </JoyGiverDef>
+</Defs>
