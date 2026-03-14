@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <SoundDef>
+    <defName>BubblePopping</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>5</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>BubblePopping</clipPath>
+          </li>
+        </grains>
+        <volumeRange>10~15</volumeRange>
+        <pitchRange>0.9~1.1</pitchRange>
+        <onCamera>true</onCamera>
+        <repeatMode>NeverTwice</repeatMode>
+      </li>
+    </subSounds>
+  </SoundDef>
+</Defs>

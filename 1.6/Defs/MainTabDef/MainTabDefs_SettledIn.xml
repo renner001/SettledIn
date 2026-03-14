@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <MainButtonDef>
+    <defName>MainTabSettlementScores</defName>
+    <label>Settlement</label>
+    <description>Check your settlement score and achieved bonuses.</description>
+    <tabWindowClass>DanielRenner.SettledIn.MainTabWindow_SettlementScores</tabWindowClass>
+    <order>81</order>
+    <!--<defaultHotKey>F9</defaultHotKey>-->
+    <validWithoutMap>false</validWithoutMap>
+    <minimized>True</minimized>
+    <iconPath>SettlementScoreMenuIcon</iconPath>
+  </MainButtonDef>
+</Defs>

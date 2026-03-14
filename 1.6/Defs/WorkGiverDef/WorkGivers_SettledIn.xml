@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <WorkGiverDef>
+    <defName>WorkGiver_ManageSettlement</defName>
+    <label>manage settlement</label>
+    <giverClass>DanielRenner.SettledIn.WorkGiver_ManageSettlement</giverClass>
+    <workType>Managing</workType>
+    <priorityInType>99</priorityInType>
+    <verb>managing</verb>
+    <gerund>managing settlement at</gerund>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+</Defs>

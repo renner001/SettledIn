@@ -16,10 +16,19 @@
   <v1.5>
     <li>/</li>
     <li>1.5</li>
+    <li IfModActive="VanillaExpanded.VFEProduction">vfeproduction_1.5</li>
+    <li IfModActive="falconne.LabelsOnFloor">LabelsOnFloorPatches_1.5</li>
+    <li IfModActive="DankPyon.Medieval.Overhaul">dankpyon.medieval.overhaul.patches_1.5</li>
+    <li IfModActive="PrimitiveProduction.velcroboy333">primitiveproduction.velcroboy333.patches_1.5</li>
+    <li IfModNotActive="Fluffy.ColonyManager">NoModManagerPatches_1.5</li>
+  </v1.5>
+  <v1.6>
+    <li>/</li>
+    <li>1.6</li>
     <li IfModActive="VanillaExpanded.VFEProduction">vfeproduction</li>
     <li IfModActive="falconne.LabelsOnFloor">LabelsOnFloorPatches</li>
     <li IfModActive="DankPyon.Medieval.Overhaul">dankpyon.medieval.overhaul.patches</li>
     <li IfModActive="PrimitiveProduction.velcroboy333">primitiveproduction.velcroboy333.patches</li>
     <li IfModNotActive="Fluffy.ColonyManager">NoModManagerPatches</li>
-  </v1.5>
+  </v1.6>
 </loadFolders>

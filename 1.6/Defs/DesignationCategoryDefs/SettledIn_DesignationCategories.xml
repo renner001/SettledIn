@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<DesignationCategoryDef>
+  <defName>DesignationCategory_SettledIn</defName>
+  <label>Settlement</label>
+  <description>Buildings related to settlement management and infrastructure.</description>
+  <order>45</order>
+</DesignationCategoryDef>
+</Defs>

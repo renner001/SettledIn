@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/StatDef[defName = "WorkTableWorkSpeedFactor"]/parts</xpath>
+    <value>
+      <li Class="DanielRenner.SettledIn.StatPart_WorkTablePersonalized" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[@Name = "BenchBase"]/comps</xpath>
+    <value>
+      <li Class="DanielRenner.SettledIn.CompProperties_AssignableToPawn_ProductionBuilding">
+        <drawAssignmentOverlay>true</drawAssignmentOverlay>
+        <drawUnownedAssignmentOverlay>false</drawUnownedAssignmentOverlay>
+        <maxAssignedPawnsCount>1</maxAssignedPawnsCount>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[@Name = "BenchBase"]</xpath>
+    <value>
+      <drawGUIOverlay>true</drawGUIOverlay>
+    </value>
+  </Operation>
+  <!--
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "ElectricTailoringBench"]/comps</xpath>
+    <value>
+      <li Class="DanielRenner.SettledIn.CompProperties_AssignableToPawn_ProductionBuilding">
+        <drawAssignmentOverlay>true</drawAssignmentOverlay>
+        <drawUnownedAssignmentOverlay>false</drawUnownedAssignmentOverlay>
+        <maxAssignedPawnsCount>1</maxAssignedPawnsCount>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName = "ElectricTailoringBench"]</xpath>
+    <value>
+      <drawGUIOverlay>true</drawGUIOverlay>
+    </value>
+  </Operation>
+  -->
+</Patch>

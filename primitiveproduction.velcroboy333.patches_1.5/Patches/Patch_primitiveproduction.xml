@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationConditional">
+        <xpath>/Defs/ThingDef[@Name="VBY_PrimitiveBenchBase"]/comps</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[@Name="VBY_PrimitiveBenchBase"]</xpath>
+            <value>
+                <comps>
+                    <li Class="DanielRenner.SettledIn.CompProperties_AssignableToPawn_ProductionBuilding">
+						<drawAssignmentOverlay>true</drawAssignmentOverlay>
+						<drawUnownedAssignmentOverlay>false</drawUnownedAssignmentOverlay>
+						<maxAssignedPawnsCount>1</maxAssignedPawnsCount>
+					</li >
+                </comps>
+            </value>
+        </nomatch>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[@Name="VBY_PrimitiveBenchBase"]/comps</xpath>
+            <value>
+                <li Class="DanielRenner.SettledIn.CompProperties_AssignableToPawn_ProductionBuilding">
+					<drawAssignmentOverlay>true</drawAssignmentOverlay>
+					<drawUnownedAssignmentOverlay>false</drawUnownedAssignmentOverlay>
+					<maxAssignedPawnsCount>1</maxAssignedPawnsCount>
+				</li >
+            </value>
+        </match>
+    </Operation>
+</Patch>

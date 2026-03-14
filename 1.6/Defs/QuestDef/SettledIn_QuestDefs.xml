@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- ImmigrantArrives -->
+  <QuestScriptDef>
+    <defName>ImmigrantArrives</defName>
+    <autoAccept>true</autoAccept>
+    <defaultHidden>false</defaultHidden>
+    <isRootSpecial>true</isRootSpecial>
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->Immigrant arrives</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->Immigration: A {PAWN_title} named {PAWN_nameDef} was lured by stories of your settlement and wants to join the colony.</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    <root Class="DanielRenner.SettledIn.QuestNode_Root_Immigrant_Arrives" />
+  </QuestScriptDef>
+</Defs>

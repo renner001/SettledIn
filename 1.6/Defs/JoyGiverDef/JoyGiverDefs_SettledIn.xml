@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- EnjoySettlementCenter -->
+  <JoyGiverDef>
+    <defName>EnjoySettlementCenter</defName>
+    <giverClass>DanielRenner.SettledIn.JoyGiver_EnjoySettlementCenter</giverClass>
+    <baseChance>2</baseChance>
+    <jobDef>EnjoySettlementCenter</jobDef>
+    <joyKind>Meditative</joyKind>
+  </JoyGiverDef>
+  <JoyGiverDef>
+    <defName>RecreationConstruction</defName>
+    <giverClass>DanielRenner.SettledIn.JoyGiver_RecreationConstruction</giverClass>
+    <baseChance>4</baseChance>
+    <jobDef>RecreationConstruction</jobDef>
+    <joyKind>Productive</joyKind>
+  </JoyGiverDef>
+  <JoyGiverDef>
+    <defName>RecreationTinkering</defName>
+    <giverClass>DanielRenner.SettledIn.JoyGiver_RecreationTinkering</giverClass>
+    <baseChance>1</baseChance>
+    <jobDef>RecreationTinkering</jobDef>
+    <joyKind>Productive</joyKind>
+  </JoyGiverDef>
+</Defs>

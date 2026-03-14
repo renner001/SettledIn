@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- abstract SettledInRoomRoleDynamic -->
+  <RoomRoleDef Class="DanielRenner.SettledIn.SettledInDynamicRoomRoleDef" Name="SettledInRoomRoleDynamic" Abstract="True">
+    <perfectDefs>
+    </perfectDefs>
+    <positiveDefs>
+    </positiveDefs>
+    <negativeDefs>
+    </negativeDefs>
+    <forbiddenDefs>
+    </forbiddenDefs>
+  </RoomRoleDef>
+  <!-- ElectricalRoom -->
+  <RoomRoleDef Class="DanielRenner.SettledIn.SettledInDynamicRoomRoleDef" Parent="SettledInRoomRoleDynamic">
+    <defName>ElectricalRoom</defName>
+    <label>Electrical Room</label>
+    <description>A cabinet containing electrification components like fuses, batteries and power switches.</description>
+    <workerClass>DanielRenner.SettledIn.RoomRoleWorker_Electrical_Room</workerClass>
+    <perfectDefs>
+      <li>Building_RTMakeshiftFuse</li>
+      <li>VFE_SmallBattery</li>
+      <li>VFE_LargeBattery</li>
+      <li>Battery</li>
+      <li>PowerSwitch</li>
+    </perfectDefs>
+    <positiveDefs>
+    </positiveDefs>
+    <negativeDefs>
+    </negativeDefs>
+    <forbiddenDefs>
+      <li>Bed</li>
+      <li>DoubleBed</li>
+      <li>SleepingSpot</li>
+    </forbiddenDefs>
+  </RoomRoleDef>
+  <!-- Hydroponics -->
+  <RoomRoleDef Class="DanielRenner.SettledIn.SettledInDynamicRoomRoleDef" Parent="SettledInRoomRoleDynamic">
+    <defName>Hydroponics</defName>
+    <label>Hydroponics</label>
+    <description>Independence from nature! Crops grown at any time of the day and season in a controlled environment.</description>
+    <workerClass>DanielRenner.SettledIn.RoomRoleWorker_Hydroponics</workerClass>
+    <perfectDefs>
+      <li>Building_PlantGrower</li>
+    </perfectDefs>
+    <positiveDefs>
+    </positiveDefs>
+    <negativeDefs>
+    </negativeDefs>
+    <forbiddenDefs>
+      <li>Bed</li>
+      <li>DoubleBed</li>
+      <li>SleepingSpot</li>
+    </forbiddenDefs>
+  </RoomRoleDef>
+  <!-- Drug Lab -->
+  <RoomRoleDef Class="DanielRenner.SettledIn.SettledInDynamicRoomRoleDef" Parent="SettledInRoomRoleDynamic">
+    <defName>DrugLab</defName>
+    <label>Drug Lab</label>
+    <description>A place dedicated to cooking drugs.</description>
+    <workerClass>DanielRenner.SettledIn.RoomRoleWorker_DrugLab</workerClass>
+    <perfectDefs>
+      <li>Building_DrugLab</li>
+    </perfectDefs>
+    <positiveDefs>
+      <li>Building_Brewery</li>
+    </positiveDefs>
+    <negativeDefs>
+      <li>Building_CookingStation</li>
+      <li>Building_ButcherTable</li>
+    </negativeDefs>
+    <forbiddenDefs>
+      <li>Bed</li>
+      <li>DoubleBed</li>
+      <li>SleepingSpot</li>
+    </forbiddenDefs>
+  </RoomRoleDef>
+  <!-- GeneratorRoom -->
+  <RoomRoleDef Class="DanielRenner.SettledIn.SettledInDynamicRoomRoleDef" Parent="SettledInRoomRoleDynamic">
+    <defName>GeneratorRoom</defName>
+    <label>Generator Room</label>
+    <description>A room dedicated to producing and managign power. Contains power production facilities, electrification components like fuses, batteries and power switches.</description>
+    <workerClass>DanielRenner.SettledIn.RoomRoleWorker_Generator_Room</workerClass>
+    <perfectDefs>
+      <li>Building_RTMakeshiftFuse</li>
+      <li>VFE_SmallBattery</li>
+      <li>VFE_LargeBattery</li>
+      <li>Battery</li>
+      <li>PowerSwitch</li>
+    </perfectDefs>
+    <positiveDefs>
+    </positiveDefs>
+    <negativeDefs>
+    </negativeDefs>
+    <forbiddenDefs>
+      <li>Bed</li>
+      <li>DoubleBed</li>
+      <li>SleepingSpot</li>
+    </forbiddenDefs>
+  </RoomRoleDef>
+  <!-- Museum -->
+  <RoomRoleDef Class="DanielRenner.SettledIn.SettledInDynamicRoomRoleDef" Parent="SettledInRoomRoleDynamic">
+    <defName>Museum</defName>
+    <label>Museum</label>
+    <description>A place of wonders of the past. A museum on its own gives no benefits but counts heavily toward the settlement score.</description>
+    <workerClass>DanielRenner.SettledIn.RoomRoleWorker_Museum</workerClass>
+    <perfectDefs>
+      <li>BDsDisplay_Small</li> <!-- Display Shelf mod -->
+      <li>BDsDisplay_Long</li>
+    </perfectDefs>
+    <positiveDefs>
+    </positiveDefs>
+    <negativeDefs>
+    </negativeDefs>
+    <forbiddenDefs>
+    </forbiddenDefs>
+  </RoomRoleDef>
+  <!-- SettlementOffice -->
+  <RoomRoleDef Class="DanielRenner.SettledIn.SettledInDynamicRoomRoleDef" Parent="SettledInRoomRoleDynamic">
+    <defName>SettlementOffice</defName>
+    <label>Settlement Office</label>
+    <description>A office to manage the settlement affairs.</description>
+    <workerClass>DanielRenner.SettledIn.RoomRoleWorker_SettlementOffice</workerClass>
+    <perfectDefs>
+      <li>TableSettlementOffice</li>
+    </perfectDefs>
+    <positiveDefs>
+    </positiveDefs>
+    <negativeDefs>
+    </negativeDefs>
+    <forbiddenDefs>
+    </forbiddenDefs>
+  </RoomRoleDef>
+  <!-- TailorShop -->
+  <RoomRoleDef Class="DanielRenner.SettledIn.SettledInDynamicRoomRoleDef" Parent="SettledInRoomRoleDynamic">
+    <defName>TailorShop</defName>
+    <label>Tailor Shop</label>
+    <description>Clothes are tailored here. The focus on tailoring allows a higher quality (+1 in 25%).</description>
+    <workerClass>DanielRenner.SettledIn.RoomRoleWorker_TailorShop</workerClass>
+    <perfectDefs>
+      <li>HandTailoringBench</li>
+      <li>ElectricTailoringBench</li>
+      <li>VBY_PrimitiveTailoringTable</li>
+    </perfectDefs>
+    <positiveDefs>
+      <li>TableLoom</li>
+      <li>TableElecLoom</li>
+    </positiveDefs>
+    <negativeDefs>
+      <li>CraftingSpot</li>
+    </negativeDefs>
+    <forbiddenDefs>
+      <li>FabricationBench</li>
+      <li>ButcherSpot</li>
+      <li>BiofuelRefinery</li>
+      <li>TableMachining</li>
+      <li>Brewery</li>
+      <li>DrugLab</li>
+      <li>TableSculpting</li>
+      <li>TableButcher</li>
+      <li>FueledSmithy</li>
+      <li>ElectricSmithy</li>
+      <li>TableStonecutter</li>
+    </forbiddenDefs>
+  </RoomRoleDef>
+  <!-- Smithy -->
+  <RoomRoleDef Class="DanielRenner.SettledIn.SettledInDynamicRoomRoleDef" Parent="SettledInRoomRoleDynamic">
+    <defName>Smithy</defName>
+    <label>Smithy</label>
+    <description>The place for metalworks. The focus on smithing allows a higher quality (+1 in 25%).</description>
+    <workerClass>DanielRenner.SettledIn.RoomRoleWorker_Smithy</workerClass>
+    <perfectDefs>
+      <li>FueledSmithy</li>
+      <li>ElectricSmithy</li>
+      <li>AYCharcoalSmithy</li>
+    </perfectDefs>
+    <positiveDefs>
+    </positiveDefs>
+    <negativeDefs>
+      <li>CraftingSpot</li>
+    </negativeDefs>
+    <forbiddenDefs>
+      <li>TableStonecutter</li>
+      <li>TableSculpting</li>
+      <li>FabricationBench</li>
+      <li>ButcherSpot</li>
+      <li>BiofuelRefinery</li>
+      <li>TableMachining</li>
+      <li>Brewery</li>
+      <li>DrugLab</li>
+      <li>TableButcher</li>
+      <li>HandTailoringBench</li>
+      <li>ElectricTailoringBench</li>
+    </forbiddenDefs>
+  </RoomRoleDef>
+  <!-- StoneworkStudio -->
+  <RoomRoleDef Class="DanielRenner.SettledIn.SettledInDynamicRoomRoleDef" Parent="SettledInRoomRoleDynamic">
+    <defName>StoneworkStudio</defName>
+    <label>Stoneworks</label>
+    <description>The place for stone works. The focus on working with stone allows a higher quality (+1 in 25%).</description>
+    <workerClass>DanielRenner.SettledIn.RoomRoleWorker_StoneworkStudio</workerClass>
+    <perfectDefs>
+      <li>TableStonecutter</li>
+    </perfectDefs>
+    <positiveDefs>
+    </positiveDefs>
+    <negativeDefs>
+      <li>CraftingSpot</li>
+      <li>TableSculpting</li>
+    </negativeDefs>
+    <forbiddenDefs>
+      <li>FueledSmithy</li>
+      <li>ElectricSmithy</li>
+      <li>FabricationBench</li>
+      <li>ButcherSpot</li>
+      <li>BiofuelRefinery</li>
+      <li>TableMachining</li>
+      <li>Brewery</li>
+      <li>DrugLab</li>
+      <li>TableButcher</li>
+      <li>HandTailoringBench</li>
+      <li>ElectricTailoringBench</li>
+    </forbiddenDefs>
+  </RoomRoleDef>
+  <!-- ArtworkStudio -->
+  <RoomRoleDef Class="DanielRenner.SettledIn.SettledInDynamicRoomRoleDef" Parent="SettledInRoomRoleDynamic">
+    <defName>ArtworkStudio</defName>
+    <label>Artwork Studio</label>
+    <description>The place for creating arts. The focus on creative work allows for a higher quality (+1 in 25%).</description>
+    <workerClass>DanielRenner.SettledIn.RoomRoleWorker_ArtworkStudio</workerClass>
+    <perfectDefs>
+      <li>TableStonecutter</li>
+      <li>TableArtElectric</li>
+      <li>TableSculpting</li>
+      <li>VBY_PrimitiveStoneCuttingSpot</li>
+    </perfectDefs>
+    <positiveDefs>
+    </positiveDefs>
+    <negativeDefs>
+      <li>CraftingSpot</li>
+      <li>TableSculpting</li>
+    </negativeDefs>
+    <forbiddenDefs>
+      <li>FueledSmithy</li>
+      <li>ElectricSmithy</li>
+      <li>FabricationBench</li>
+      <li>ButcherSpot</li>
+      <li>BiofuelRefinery</li>
+      <li>TableMachining</li>
+      <li>Brewery</li>
+      <li>DrugLab</li>
+      <li>TableButcher</li>
+      <li>HandTailoringBench</li>
+      <li>ElectricTailoringBench</li>
+    </forbiddenDefs>
+  </RoomRoleDef>
+  <!-- MachiningLab -->
+  <RoomRoleDef Class="DanielRenner.SettledIn.SettledInDynamicRoomRoleDef" Parent="SettledInRoomRoleDynamic">
+    <defName>MachiningLab</defName>
+    <label>Machining Lab</label>
+    <description>The place for creating advanced technology. The focus on modern crafting tools allows for a higher quality (+1 in 25%).</description>
+    <workerClass>DanielRenner.SettledIn.RoomRoleWorker_MachiningLab</workerClass>
+    <perfectDefs>
+      <li>FabricationBench</li>
+      <li>TableMachining</li>
+    </perfectDefs>
+    <positiveDefs>
+    </positiveDefs>
+    <negativeDefs>
+      <li>CraftingSpot</li>
+    </negativeDefs>
+    <forbiddenDefs>
+      <li>TableStonecutter</li>
+      <li>TableSculpting</li>
+      <li>FueledSmithy</li>
+      <li>ElectricSmithy</li>
+      <li>ButcherSpot</li>
+      <li>BiofuelRefinery</li>
+      <li>Brewery</li>
+      <li>DrugLab</li>
+      <li>TableButcher</li>
+      <li>HandTailoringBench</li>
+      <li>ElectricTailoringBench</li>
+    </forbiddenDefs>
+  </RoomRoleDef>
+  <!-- CommunityRoom -->
+  <RoomRoleDef>
+    <defName>CommunityRoom</defName>
+    <label>Community Room</label>
+    <description>A multi-purpose community room that both suits as dining and recreation room.</description>
+    <workerClass>DanielRenner.SettledIn.RoomRoleWorker_CommunityRoom</workerClass>
+  </RoomRoleDef>
+</Defs>

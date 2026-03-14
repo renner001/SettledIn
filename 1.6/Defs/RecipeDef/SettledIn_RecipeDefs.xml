@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- Make_PlantCommodities -->
+  <RecipeDef>
+    <defName>Make_PlantCommodities</defName>
+    <label>make commodities</label>
+    <description>Make plants into commodities. This uses the plants skill. Commodities are barbles that sell so well - you might even buy the resources and still make a good profit. Colonists like to consume commodities as well and will find silver in their hidden pockets to pay for it.</description>
+    <jobString>Making commodities.</jobString>
+    <workAmount>800</workAmount>
+    <requiredGiverWorkType>Crafting</requiredGiverWorkType>
+    <workSpeedStat>PlantWorkSpeed</workSpeedStat>
+    <effectWorking>Sculpt</effectWorking>
+    <soundWorking>Recipe_Sculpt</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <ingredientValueGetterClass>IngredientValueGetter_Volume</ingredientValueGetterClass>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>FoodRaw</li>
+            <li>PlantMatter</li>
+          </categories>
+          <disallowedThingDefs>
+            <li>Hay</li>
+            <li>Dye</li>
+          </disallowedThingDefs>
+        </filter>
+        <count>30.0</count>
+      </li>
+    </ingredients>
+    <products>
+      <Commodity>1</Commodity>
+    </products>
+    <fixedIngredientFilter>
+      <categories>
+        <li>FoodRaw</li>
+        <li>PlantMatter</li>
+      </categories>
+      <disallowedThingDefs>
+        <li>Hay</li>
+        <li>Dye</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+    <defaultIngredientFilter>
+      <categories>
+        <li>FoodRaw</li>
+        <li>PlantMatter</li>
+      </categories>
+      <disallowedThingDefs>
+      </disallowedThingDefs>
+    </defaultIngredientFilter>
+    <workSkill>Plants</workSkill>
+    <displayPriority>450</displayPriority>
+  </RecipeDef>
+
+  <!-- Make_FoodCommodities -->
+  <RecipeDef>
+    <defName>Make_FoodCommodities</defName>
+    <label>cook commodities x3</label>
+    <description>Cook commodities from plant matter. Commodities are barbles that sell so well - you might even buy the resources and still make a good profit. Colonists like to consume commodities as well and will find silver in their hidden pockets to pay for it.</description>
+    <jobString>Cooking commodities.</jobString>
+    <workAmount>2500</workAmount>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <requiredGiverWorkType>Cooking</requiredGiverWorkType>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Foods</li>
+            <li>PlantMatter</li>
+          </categories>
+          <disallowedThingDefs>
+            <li>Hay</li>
+            <li>Dye</li>
+          </disallowedThingDefs>
+        </filter>
+        <count>8.0</count>
+      </li>
+    </ingredients>
+    <products>
+      <Commodity>3</Commodity>
+    </products>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Foods</li>
+        <li>PlantMatter</li>
+      </categories>
+      <disallowedThingDefs>
+        <li>Hay</li>
+        <li>Dye</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+    <defaultIngredientFilter>
+      <categories>
+        <li>FoodRaw</li>
+      </categories>
+      <disallowedThingDefs>
+      </disallowedThingDefs>
+    </defaultIngredientFilter>
+    <workSkill>Cooking</workSkill>
+    <researchPrerequisite>Pemmican</researchPrerequisite>
+    <displayPriority>450</displayPriority>
+  </RecipeDef>
+  
+  <!-- Make_SteelCommodities -->
+  <RecipeDef>
+    <defName>Make_SteelCommodities</defName>
+    <label>craft commodities from steel</label>
+    <description>Craft commodities from steel. Commodities are are barbles that sell so well - you might even buy the resources and still make a good profit. Colonists like to consume commodities as well and will find silver in their hidden pockets to pay for it.</description>
+    <jobString>Crafting commodities.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>2500</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>150</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Commodity>3</Commodity>
+    </products>
+    <skillRequirements>
+      <Crafting>8</Crafting>
+    </skillRequirements>
+    <workSkill>Crafting</workSkill>
+    <displayPriority>0</displayPriority>
+  </RecipeDef>
+
+  <!-- Make_StoneCommodities -->
+  <RecipeDef>
+    <defName>Make_StoneCommodities</defName>
+    <label>chisel commodities from stone chunks</label>
+    <description>Chisel commodities from stone chunks. Requires and trains mining skill. Commodities are are barbles that sell so well - you might even buy the resources and still make a good profit. Colonists like to consume commodities as well and will find silver in their hidden pockets to pay for it.</description>
+    <jobString>Chiseling commodities.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>CutStone</effectWorking>
+    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+    <workAmount>800</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>StoneChunks</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>StoneChunks</li>
+      </categories>
+    </fixedIngredientFilter>
+    <products>
+      <Commodity>1</Commodity>
+    </products>
+    <skillRequirements>
+      <Mining>4</Mining>
+    </skillRequirements>
+    <workSkill>Mining</workSkill>
+    <displayPriority>0</displayPriority>
+  </RecipeDef>
+
+  <!-- Make_StoneBlockCommodities -->
+  <RecipeDef>
+    <defName>Make_StoneBlockCommodities</defName>
+    <label>chisel commodities from stone blocks</label>
+    <description>Chisel commodities from stone blocks. Commodities are are barbles that sell so well - you might even buy the resources and still make a good profit. Colonists like to consume commodities as well and will find silver in their hidden pockets to pay for it.</description>
+    <jobString>Chiseling commodities.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>CutStone</effectWorking>
+    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+    <workAmount>800</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>StoneBlocks</li>
+          </categories>
+        </filter>
+        <count>20</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>StoneBlocks</li>
+      </categories>
+    </fixedIngredientFilter>
+    <products>
+      <Commodity>1</Commodity>
+    </products>
+    <skillRequirements>
+      <Mining>4</Mining>
+    </skillRequirements>
+    <workSkill>Mining</workSkill>
+    <displayPriority>0</displayPriority>
+  </RecipeDef>
+
+  <!-- Make_WoodCommodities -->
+  <RecipeDef>
+    <defName>Make_WoodCommodities</defName>
+    <label>craft commodities from wood</label>
+    <description>Craft commodities from wood. Commodities are are barbles that sell so well - you might even buy the resources and still make a good profit. Colonists like to consume commodities as well and will find silver in their hidden pockets to pay for it.</description>
+    <jobString>Crafting commodities.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Sculpt</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>2500</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>WoodLog</li>
+          </thingDefs>
+        </filter>
+        <count>250</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>WoodLog</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Commodity>3</Commodity>
+    </products>
+    <skillRequirements>
+      <Crafting>8</Crafting>
+    </skillRequirements>
+    <workSkill>Crafting</workSkill>
+    <displayPriority>0</displayPriority>
+  </RecipeDef>
+
+  <!-- Make_TextileCommodities -->
+  <RecipeDef>
+    <defName>Make_TextilesCommodities</defName>
+    <label>craft commodities from textiles and leathers</label>
+    <description>Craft commodities from textiles and leathers. Commodities are are barbles that sell so well - you might even buy the resources and still make a good profit. Colonists like to consume commodities as well and will find silver in their hidden pockets to pay for it.</description>
+    <jobString>Crafting commodities.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Tailor</effectWorking>
+    <soundWorking>Recipe_Tailor</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <workAmount>2500</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Leathers</li>
+            <li>Textiles</li>
+          </categories>
+          <disallowedThingDefs>
+            <li>Leather_Thrumbo</li>
+          </disallowedThingDefs>
+        </filter>
+        <count>200</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Leathers</li>
+        <li>Textiles</li>
+      </categories>
+      <disallowedThingDefs>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Commodity>3</Commodity>
+    </products>
+    <skillRequirements>
+      <Crafting>8</Crafting>
+    </skillRequirements>
+    <workSkill>Crafting</workSkill>
+    <displayPriority>0</displayPriority>
+  </RecipeDef>
+</Defs>

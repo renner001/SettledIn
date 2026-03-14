@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/StatDef[defName = "MoveSpeed"]/parts</xpath>
+    <value>
+      <li Class="DanielRenner.SettledIn.StatPart_MoveSpeedSettlement" />
+    </value>
+  </Operation>
+</Patch>

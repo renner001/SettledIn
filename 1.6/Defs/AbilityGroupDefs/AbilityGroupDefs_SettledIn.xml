@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <AbilityGroupDef>
+    <defName>Settlement</defName>
+    <cooldownTicks>200000</cooldownTicks>
+    <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+    <ritualRoleIds>
+      <li>leader</li>
+    </ritualRoleIds>
+  </AbilityGroupDef>
+</Defs>
