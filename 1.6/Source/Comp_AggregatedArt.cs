@@ -75,7 +75,10 @@ namespace DanielRenner.SettledIn
         public TaggedString GetText(RulePackDef include = null)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(DateString + /* " "  +  Author +*/ ":");
+            if (Author != null)
+                sb.AppendLine($"{DateString}, {Author}:");
+            else
+                sb.AppendLine($"{DateString}, by unknown:");
             sb.AppendLine(TaleRef.GenerateText(TextGenerationPurpose.ArtDescription, include));
             return sb.ToTaggedString();
         }
@@ -84,6 +87,7 @@ namespace DanielRenner.SettledIn
     public class Comp_AggregatedArt : CompArt
     {
         private List<ArtDataHolder> recordedTales = new List<ArtDataHolder>();
+        private int lastArtTick = 0; // used to avoid too many chronicles in a short time
 
         // set the title to our fixed title on any spawn - rather too often than sorry!
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -97,6 +101,7 @@ namespace DanielRenner.SettledIn
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("DanielRenner.SettledIn.SettlementCenterArtIntro".Translate());
+            sb.AppendLine();
             foreach (var tale in recordedTales)
             {
                 sb.AppendLine(tale.GetText(this.Props.descriptionMaker));
@@ -117,6 +122,7 @@ namespace DanielRenner.SettledIn
 
             // Ensure the history and the IDs survive save/load
             Scribe_Collections.Look(ref recordedTales, "recordedTales", LookMode.Deep);
+            Scribe_Values.Look(ref lastArtTick, "lastArtTick", 0);
 
             if (recordedTales == null)
                 recordedTales = new List<ArtDataHolder>();
@@ -128,8 +134,17 @@ namespace DanielRenner.SettledIn
         /// <summary>
         /// Scans the colony's history for a significant event that hasn't been recorded yet.
         /// </summary>
-        public bool TryRecordNewHistoricalEvent()
+        public bool TryRecordNewHistoricalEvent(Pawn chronicler)
         {
+            if (Find.TickManager.TicksGame < lastArtTick + 60000) 
+                return false; // only one chronicle per day
+
+            // art should be created once per 15 days
+            if (!Rand.MTBEventOccurs(15f, 60000f, Find.TickManager.TicksGame - lastArtTick))
+            {
+                return false;
+            }
+
             if (recordedTales.Count > 500)
             {
                 Log.Message($"skipped recording a new tale as there are already {recordedTales.Count} tales recorded in {parent}");
@@ -154,8 +169,9 @@ namespace DanielRenner.SettledIn
                 var taleRef = new TaleReference(selectedTale);
                 var text = taleRef.GenerateText(TextGenerationPurpose.ArtDescription, this.Props.descriptionMaker);
                 Log.Debug($"AppendTaleToChronicle: {text}");
-                recordedTales.Add(new ArtDataHolder(selectedTale,null, taleRef));
+                recordedTales.Add(new ArtDataHolder(selectedTale, chronicler, taleRef));
                 taleRefField.SetValue(this, taleRef); // change the tale we are referencing to trick a refresh in the ITab_Art
+                lastArtTick = Find.TickManager.TicksGame;
                 return true;
             }
             return false;
@@ -163,7 +179,7 @@ namespace DanielRenner.SettledIn
 
         public override string CompInspectStringExtra()
         {
-            return this.recordedTales.Count +  "DanielRenner.SettledIn.ChronicleStored".Translate();
+            return $"{this.recordedTales.Count} {"DanielRenner.SettledIn.ChronicleStored".Translate()}";
         }
     }
 

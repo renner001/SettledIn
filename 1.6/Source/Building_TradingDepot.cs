@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 using static DanielRenner.SettledIn.TradeConnectivityUtility;
+using static RimWorld.ColonistBar;
 
 namespace DanielRenner.SettledIn
 {
@@ -51,7 +52,7 @@ namespace DanielRenner.SettledIn
 
             foreach (var s in settlements)
             {
-                if (s.Faction == null || s.Faction == Faction.OfPlayer)
+                if (s.Faction == null || s.Faction.IsPlayer) 
                     continue;
 
                 int distance = Find.WorldGrid.TraversalDistanceBetween(playerTile, s.Tile, passImpassable: false, int.MaxValue);
@@ -85,8 +86,63 @@ namespace DanielRenner.SettledIn
         }
     }
 
+    /// <summary>
+    /// stores the generated goods inside the trading depot until it is time to spawn them
+    /// </summary>
+    public class ThingCountSnapshot : IExposable
+    {
+        public ThingDef def;
+        public int count;
+
+        public ThingCountSnapshot() { } // Required for Scribe
+        public ThingCountSnapshot(ThingDef def, int count)
+        {
+            this.def = def;
+            this.count = count;
+        }
+
+        public void ExposeData()
+        {
+            Scribe_Defs.Look(ref def, "def");
+            Scribe_Values.Look(ref count, "count", 0);
+        }
+
+        public static void AddItems(List<ThingCountSnapshot> list, ThingDef def, int quantity)
+        {
+            var existingEntry = list.FirstOrDefault(entry => entry.def == def);
+            if (existingEntry == null) // if we dont already track this item type,m we add it to the list
+            {
+                var newEntry = new ThingCountSnapshot()
+                {
+                    def = def,
+                    count = 0
+                };
+                list.Add(newEntry);
+                existingEntry = newEntry;
+            }
+            existingEntry.count += quantity;
+        }
+    }
+
     public class Building_TradeDepot : Building
     {
+        private ThingDef outputDef;
+
+        // fuelCount -> inputBuffer --tick-rate-> outputBuffer -> outputCount 
+        private float inputBuffer = 0f; // stores consumed item spares for burning
+        private float outputBuffer = 0f; // carries over fractional trade value
+        private float tradeTargetSilverPerDay = 100f; // Player-set target
+        private float currentTradeCap = 0f;            // Dynamic max based on conditions
+        private float tradeFactorCached = -1f; // cached world tile trade effects
+        private List<SettlementTradeInfo> tradeEffects = null;
+        private List<ThingCountSnapshot> pendingDeliveryItems = new List<ThingCountSnapshot>();
+        private int nextDeliveryTick = -1; // tick at which we will spawn the new items
+
+        // Expose the data for our custom ITab
+        public float CurrentTradeCap => currentTradeCap;
+        public float TradeFactorCached => tradeFactorCached;
+        public List<SettlementTradeInfo> TradeEffects => tradeEffects;
+
         public ThingDef InputDef
         {
             get
@@ -107,21 +163,18 @@ namespace DanielRenner.SettledIn
             }
         }
 
-        private ThingDef outputDef;
-
-        // fuelCount -> inputBuffer --tick-rate-> outputBuffer -> outputCount 
-        private float inputBuffer = 0f; // stores consumed item spares for burning
-        private float outputBuffer = 0f; // carries over fractional trade value
-        private float tradeTargetSilverPerDay = 100f; // Player-set target
-        private float currentTradeCap = 0f;            // Dynamic max based on conditions
-        private float tradeFactorCached = -1f; // cached world tile trade effects
-        private List<SettlementTradeInfo> tradeEffects = null;
-
         private float EffectiveTradeRate => Mathf.Min(tradeTargetSilverPerDay, currentTradeCap);
 
+        private List<Gizmo> cachedBaseGizmos = null;
         public override IEnumerable<Gizmo> GetGizmos()
         {
-            foreach (var g in base.GetGizmos()) yield return g;
+            if (cachedBaseGizmos == null)
+            {
+                cachedBaseGizmos = new List<Gizmo>(base.GetGizmos());
+            }
+
+            foreach (var g in cachedBaseGizmos) yield return g;
+
             var inputDef = InputDef;
             yield return new Command_Action
             {
@@ -150,7 +203,7 @@ namespace DanielRenner.SettledIn
                         "Set Trade Value per Day",
                         val => tradeTargetSilverPerDay = val,
                         0f,
-                        Mathf.Max(50f, newCap * 2f), // allow overshoot
+                        Mathf.Max(50f, newCap), // allow overshoot
                         tradeTargetSilverPerDay
                     ));
                 }
@@ -196,6 +249,8 @@ namespace DanielRenner.SettledIn
             //float distFactor = GetDistanceFactor();
 
             currentTradeCap = Mathf.Max(50f, totalScore / 1000f);
+            // also set the trade amount back if it is lower.
+            tradeTargetSilverPerDay = Mathf.Min(tradeTargetSilverPerDay, currentTradeCap);
         }
 
         private void SelectInput()
@@ -262,10 +317,18 @@ namespace DanielRenner.SettledIn
             Find.WindowStack.Add(new Dialog_SelectThingDef(def => outputDef = def, "Select Output Item", validOutputThings));
         }
 
+        protected override void Tick()
+        {
+            if (this.IsHashIntervalTick(250))
+            {
+                TickRare();
+            }
+        }
+
         public override void TickRare()
         {
             Log.DebugOnce("at least Building_TradingDepot TickRare() is getting called..");
-            if (tradeFactorCached < 0f || Find.TickManager.TicksGame % GenDate.TicksPerDay == 0)
+            if (tradeFactorCached < 0f || tradeEffects == null || this.IsHashIntervalTick(GenDate.TicksPerDay))
             {
                 Log.Debug($"Building_TradingDepot: refreshing CalculateTradeFactor for {this}..");
                 tradeFactorCached = TradeConnectivityUtility.CalculateTradeFactor(Map, out tradeEffects);
@@ -313,32 +376,82 @@ namespace DanielRenner.SettledIn
             var outputItemCount = Mathf.Floor(outputBuffer / outValue);
             if (outputItemCount > 0f)
             {
-                Thing outThing = ThingMaker.MakeThing(outputDef);
-                outThing.stackCount = (int)outputItemCount;
-                GenPlace.TryPlaceThing(outThing, InteractionCell, Map, ThingPlaceMode.Near);
+                ThingCountSnapshot.AddItems(pendingDeliveryItems, outputDef, (int)outputItemCount);
                 outputBuffer -= outputItemCount * outValue;
+            }
+
+            if (Find.TickManager.TicksGame >= nextDeliveryTick || nextDeliveryTick - Find.TickManager.TicksGame > GenDate.TicksPerDay*2)
+            {
+                SpawnOutputGoods();
+                ScheduleNextDelivery(); // Reset for tomorrow
+            }
+        }
+
+        private void ScheduleNextDelivery()
+        {
+            // Set a random tick within the next 24 hours
+            nextDeliveryTick = Find.TickManager.TicksGame + Rand.Range(GenDate.TicksPerDay / 2, GenDate.TicksPerDay);
+        }
+
+        public void SpawnOutputGoods()
+        {
+            Log.Debug("Building_TradingDepot.SpawnOutputGoods(): spawning output goods");
+            var index = pendingDeliveryItems.Count - 1;
+            while (index >= 0)
+            {
+                var entry = pendingDeliveryItems[index];
+                bool successfullyPlacedLast = false;
+                while (entry.count > 0)
+                {
+                    Thing outThing = ThingMaker.MakeThing(entry.def);
+                    int numInThisStack = Mathf.Min(entry.count, entry.def.stackLimit);
+                    outThing.stackCount = numInThisStack;
+                    successfullyPlacedLast = GenPlace.TryPlaceThing(outThing, InteractionCell, Map, ThingPlaceMode.Near);
+                    // does that also work with having higher quanitites as allowed stackcount? tbd: test that
+                    if (successfullyPlacedLast)
+                    {
+                        Log.Debug($"Building_TradingDepot.SpawnOutputGoods(): spawned {outThing}");
+                        entry.count -= numInThisStack;
+                        MoteMaker.ThrowText(DrawPos, Map, "DanielRenner.SettledIn.TradeDeliveryReceived".Translate());
+                    }
+                    else
+                    {
+                        Log.Warning($"Failed to place {entry.count}x {entry.def} near {this}");
+                        break; // we will not try on placing this..
+                    }
+                }
+                if (successfullyPlacedLast && entry.count <= 0)
+                {
+                    pendingDeliveryItems.RemoveAt(index);
+                }
+                index--;
             }
         }
 
         public override string GetInspectString()
         {
-            StringBuilder sb = new StringBuilder(base.GetInspectString());
-            sb.AppendLine($"Capacity for trading around {currentTradeCap:0} silver a day.");
-            sb.AppendLine($"Trade Efficiency: {tradeFactorCached:0.00}x");
-            if (tradeEffects != null && tradeEffects.Count > 0)
+            // rare cases in which the inspect string is clicked prior to the first rare tick...
+            if (tradeFactorCached < 0f)
             {
-                sb.AppendLine("Connected Settlements:");
-                foreach (var s in tradeEffects)
-                {
-                    sb.AppendLine($"  {s.settlement.LabelShort.CapitalizeFirst()}");
-                    sb.AppendLine($"    Distance: {s.distance:0} | Rep: {s.goodwill:+0;-0;0} | Score: {s.finalScore:P0}");
-                }
-            }
-            else
-            {
-                sb.AppendLine("No established trade routes available.");
+                tradeFactorCached = TradeConnectivityUtility.CalculateTradeFactor(Map, out tradeEffects);
             }
 
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(base.GetInspectString());
+            sb.AppendLine($"Trade Capacity: {currentTradeCap:0} silver/day");
+            sb.AppendLine($"Trade Efficiency: {tradeFactorCached:0.00}x");
+            sb.AppendLine("Click 'Trade Network' for details.");
+            if (pendingDeliveryItems.Any())
+            {
+                sb.AppendLine("Items in transit:");
+                foreach (var item in pendingDeliveryItems)
+                {
+                    sb.AppendLine($"  - {item.count}x {item.def.label}");
+                }
+            }
+#if DEBUG
+            sb.AppendLine($"(dev) {(nextDeliveryTick - Find.TickManager.TicksGame).ToStringTicksToPeriod()} until next delivery");
+#endif
             return sb.ToString().TrimEndNewlines();
         }
 
@@ -353,8 +466,21 @@ namespace DanielRenner.SettledIn
             Scribe_Values.Look(ref inputBuffer, "inputBuffer", 0f);
             Scribe_Values.Look(ref outputBuffer, "outputBuffer", 0f);
             Scribe_Values.Look(ref tradeTargetSilverPerDay, "tradeTargetSilverPerDay", 100f);
+
+            Scribe_Collections.Look(ref pendingDeliveryItems, "pendingDeliveryItems", LookMode.Deep);
+            if (pendingDeliveryItems == null) pendingDeliveryItems = new List<ThingCountSnapshot>();
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                // remove items that have lost references
+                var i = pendingDeliveryItems.Count - 1;
+                while (i >= 0)
+                {
+                    var item = pendingDeliveryItems[i];
+                    if (item.def == null)
+                        pendingDeliveryItems.RemoveAt(i);
+                    i--;
+                }
+            }
         }
     }
-
-
 }

@@ -9,7 +9,7 @@
     <graphicData>
       <texPath>Building_TradeDepot/TradeDepot</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(3,5)</drawSize>
+      <drawSize>(4,7)</drawSize>
       <drawOffset>(0,0,0)</drawOffset>
       <color>(96,114,95)</color>
       <damageData>
@@ -22,6 +22,9 @@
     <tickerType>Normal</tickerType>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
+    <inspectorTabs>
+      <li>DanielRenner.SettledIn.ITab_TradeNetwork</li>
+    </inspectorTabs>
     <!-- <castEdgeShadows>false</castEdgeShadows>
     <staticSunShadowHeight>0.35</staticSunShadowHeight>
     <fillPercent>0.5</fillPercent> -->
@@ -33,7 +36,7 @@
       <Mass>20</Mass>
       <Flammability>0.5</Flammability>
     </statBases>
-    <size>(3,3)</size>
+    <size>(4,5)</size>
     <costList>
       <Steel>200</Steel>
     </costList>
@@ -51,9 +54,10 @@
     </thingCategories>
     <comps>
       <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
-        <MinSettlementLevel>3</MinSettlementLevel>
+        <MinSettlementLevel>0</MinSettlementLevel>
       </li>
       <li Class="DanielRenner.SettledIn.CompProperties_TradingDepotRefuelable">
+        <fuelCapacity>250</fuelCapacity>
         <fuelFilter>
           <thingDefs>
             <li>Steel</li>
@@ -64,7 +68,6 @@
         <consumeFuelOnlyWhenUsed>false</consumeFuelOnlyWhenUsed>
         <canEjectFuel>true</canEjectFuel>
         <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
-        <fuelCapacity>20.0</fuelCapacity>
       </li>
       <!--
       <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
@@ -88,16 +91,12 @@
       <li>DanielRenner.SettledIn.PlaceWorker_NextToSettlementCenter</li>
     </placeWorkers>
   </ThingDef>
-  <!-- SettledIn_ProductionCenter -->
-  <ThingDef ParentName="BuildingBase">
-    <defName>SettledIn_ProductionCenter</defName>
-    <label>production center marker</label>
-    <description>Marks the heart of the settlements production facilities. Improves work facilities, but also worsens living conditions nearby. Can only be built once per map and has a adjustable effect radius.</description>
+  <!-- SettledIn_MarkerBase -->
+  <ThingDef Name="SettledIn_MarkerBase" ParentName="BuildingBase" Abstract="True">
+    <thingClass>Building</thingClass>
     <graphicData>
-      <texPath>Building_Pillar/Building_Pillar</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(1,2)</drawSize>
-      <color>(96,114,95)</color>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -105,6 +104,13 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
     </graphicData>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+      <Mass>20</Mass>
+      <Flammability>0.7</Flammability>
+    </statBases>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <castEdgeShadows>false</castEdgeShadows>
@@ -112,31 +118,72 @@
     <fillPercent>0.5</fillPercent>
     <canOverlapZones>false</canOverlapZones>
     <pathCost>42</pathCost>
-    <statBases>
-      <MaxHitPoints>100</MaxHitPoints>
-      <WorkToBuild>1800</WorkToBuild>
-      <Mass>20</Mass>
-      <Flammability>0.5</Flammability>
-    </statBases>
     <size>(1,1)</size>
-    <costList>
-      <Steel>200</Steel>
-    </costList>
     <building>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
     </building>
-    <!-- <researchPrerequisites>
-      <li>ComplexFurniture</li>
-    </researchPrerequisites> -->
     <designationCategory>DesignationCategory_SettledIn</designationCategory>
-    <minifiedDef>MinifiedThing</minifiedDef>
     <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
     <thingCategories>
       <li>BuildingsMisc</li>
     </thingCategories>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <drawPlaceWorkersWhileInstallBlueprintSelected>true</drawPlaceWorkersWhileInstallBlueprintSelected>
+    <placeWorkers>
+      <li>DanielRenner.SettledIn.PlaceWorker_MinSettlementLevel</li>
+      <li>DanielRenner.SettledIn.PlaceWorker_UniqueOnMap</li>
+      <li>DanielRenner.SettledIn.PlaceWorker_ShowAdjustableFacilitiesRange</li>
+    </placeWorkers>
+  </ThingDef>
+  <!-- SettledIn_WarehouseMarker -->
+  <ThingDef ParentName="SettledIn_MarkerBase">
+    <defName>SettledIn_WarehouseMarker</defName>
+    <label>warehouse pillar</label>
+    <description>A central coordination point for organizing labor and inventory. It establishes a 'standard of order' within its adjustable range, significantly increasing move speed. \n\nHowever, the strict focus on efficiency makes the area unsuitable for rest or intellectual thought.</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Pillar_Base</texPath>
+      <color>(130, 110, 90)</color>
+    </graphicData>
+    <costList>
+      <WoodLog>60</WoodLog>
+      <Steel>20</Steel>
+    </costList>
     <comps>
       <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
-        <MinSettlementLevel>3</MinSettlementLevel>
+        <MinSettlementLevel>0</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxSimultaneous>1</maxSimultaneous>
+        <maxDistance>25</maxDistance>
+        <maxDistanceFrom>5</maxDistanceFrom>
+        <requiresLOS>false</requiresLOS>
+        <appliedHediff>SettledIn_WarehouseAura</appliedHediff>
+        <statOffsets>
+          <RestRateMultiplier>-0.65</RestRateMultiplier>
+          <ResearchSpeed>-0.80</ResearchSpeed>
+          <BedRestEffectiveness>-0.55</BedRestEffectiveness>
+        </statOffsets>
+      </li>
+    </comps>
+  </ThingDef>
+  <!-- SettledIn_ProductionCenter -->
+  <ThingDef ParentName="SettledIn_MarkerBase">
+    <defName>SettledIn_ProductionCenter</defName>
+    <label>production pillar</label>
+    <description>Marks the heart of the settlements production facilities. Improves work facilities, but also worsens living conditions nearby. Can only be built once per map and has a adjustable effect radius.</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Pillar_Production</texPath>
+    </graphicData>
+    <costList>
+      <Steel>100</Steel>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>0</MinSettlementLevel>
       </li>
       <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
         <maxSimultaneous>1</maxSimultaneous>
@@ -144,71 +191,33 @@
         <maxDistanceFrom>5</maxDistanceFrom>
         <requiresLOS>false</requiresLOS>
         <statOffsets>
-          <WorkTableWorkSpeedFactor>0.25</WorkTableWorkSpeedFactor>
-          <RestRateMultiplier>0.85</RestRateMultiplier>
-          <ResearchSpeed>0.85</ResearchSpeed>
-          <BedRestEffectiveness>0.85</BedRestEffectiveness>
+          <WorkTableWorkSpeedFactor>0.5</WorkTableWorkSpeedFactor>
+          <RestRateMultiplier>-0.65</RestRateMultiplier>
+          <ResearchSpeed>-0.55</ResearchSpeed>
+          <BedRestEffectiveness>-0.55</BedRestEffectiveness>
         </statOffsets>
       </li>
     </comps>
-    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
-    <drawPlaceWorkersWhileInstallBlueprintSelected>true</drawPlaceWorkersWhileInstallBlueprintSelected>
-    <placeWorkers>
-      <li>DanielRenner.SettledIn.PlaceWorker_MinSettlementLevel</li>
-      <li>DanielRenner.SettledIn.PlaceWorker_UniqueOnMap</li>
-      <!-- <li>PlaceWorker_ShowFacilitiesConnections</li> -->
-      <li>DanielRenner.SettledIn.PlaceWorker_ShowAdjustableFacilitiesRange</li>
-    </placeWorkers>
   </ThingDef>
   <!-- SettledIn_SlumsMarker -->
-  <ThingDef ParentName="BuildingBase">
+  <!--
+  <ThingDef ParentName="SettledIn_MarkerBase">
     <defName>SettledIn_SlumsMarker</defName>
-    <label>slums marker</label>
+    <label>slums pillar</label>
     <description>Marks the lowest living quarters of the settlement. Worsens xxx for beds, but also speeds up. Can only be built once per map and has a adjustable effect radius.</description>
     <graphicData>
       <texPath>Building_SlumsMarker/Building_SlumsMarker</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(1,2)</drawSize>
-      <color>(96,114,95)</color>
-      <damageData>
-        <cornerTL>Damage/Corner</cornerTL>
-        <cornerTR>Damage/Corner</cornerTR>
-        <cornerBL>Damage/Corner</cornerBL>
-        <cornerBR>Damage/Corner</cornerBR>
-      </damageData>
     </graphicData>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>PassThroughOnly</passability>
-    <castEdgeShadows>false</castEdgeShadows>
-    <staticSunShadowHeight>0.35</staticSunShadowHeight>
-    <fillPercent>0.5</fillPercent>
-    <canOverlapZones>false</canOverlapZones>
-    <pathCost>42</pathCost>
-    <statBases>
-      <MaxHitPoints>100</MaxHitPoints>
-      <WorkToBuild>1800</WorkToBuild>
-      <Mass>20</Mass>
-      <Flammability>0.5</Flammability>
-    </statBases>
-    <size>(1,1)</size>
     <costList>
       <Steel>100</Steel>
     </costList>
     <building>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
     </building>
-    <!-- <researchPrerequisites>
-      <li>ComplexFurniture</li>
-    </researchPrerequisites> -->
-    <designationCategory>DesignationCategory_SettledIn</designationCategory>
-    <minifiedDef>MinifiedThing</minifiedDef>
     <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
-    <thingCategories>
-      <li>BuildingsMisc</li>
-    </thingCategories>
     <comps>
       <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
-        <MinSettlementLevel>3</MinSettlementLevel>
+        <MinSettlementLevel>0</MinSettlementLevel>
       </li>
       <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
         <maxSimultaneous>1</maxSimultaneous>
@@ -223,14 +232,571 @@
         </statOffsets>
       </li>
     </comps>
+  </ThingDef>
+  -->
+  <!-- SettledIn_LaboratoryMarker -->
+  <ThingDef ParentName="SettledIn_MarkerBase">
+    <defName>SettledIn_LaboratoryMarker</defName>
+    <label>laboratory pillar</label>
+    <description>Coordinates high-level research. The "Mindful" environment boosts discovery but discourages consumerism and speed.</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Pillar_Base</texPath>
+      <color>(100, 100, 200)</color>
+    </graphicData>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>0</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxDistance>25</maxDistance>
+        <appliedHediff>SettledIn_LaboratoryAura</appliedHediff>
+        <statOffsets>
+          <ResearchSpeedFactor>0.25</ResearchSpeedFactor>
+          <RestRateMultiplier>-0.30</RestRateMultiplier>
+        </statOffsets>
+      </li>
+    </comps>
+  </ThingDef>
+  <!-- SettledIn_HospitalMarker -->
+  <ThingDef ParentName="SettledIn_MarkerBase">
+    <defName>SettledIn_HospitalMarker</defName>
+    <label>hospital pillar</label>
+    <description>Establishes a sterile sanctum. The "Clean" property aids recovery but is too cautious for industrial production.</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Pillar_Base</texPath>
+      <color>(255, 255, 255)</color>
+    </graphicData>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>0</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxDistance>20</maxDistance>
+        <appliedHediff>SettledIn_HospitalAura</appliedHediff>
+        <statOffsets>
+          <MedicalTendQualityOffset>0.10</MedicalTendQualityOffset>
+          <WorkTableWorkSpeedFactor>-0.50</WorkTableWorkSpeedFactor>
+        </statOffsets>
+      </li>
+    </comps>
+  </ThingDef>
+  <!-- SettledIn_BastionMarker -->
+  <ThingDef ParentName="SettledIn_MarkerBase">
+    <defName>SettledIn_BastionMarker</defName>
+    <label>bastion pillar</label>
+    <description>A tactical coordination post. The "Agitating" environment keeps soldiers alert but makes long-term living stressful.</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Pillar_Base</texPath>
+      <color>(80, 80, 80)</color>
+    </graphicData>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>0</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxDistance>30</maxDistance>
+        <appliedHediff>SettledIn_BastionAura</appliedHediff>
+        <statOffsets>
+          <MentalBreakThreshold>0.10</MentalBreakThreshold>
+          <RestRateMultiplier>-0.50</RestRateMultiplier>
+        </statOffsets>
+      </li>
+    </comps>
+  </ThingDef>
+  <!-- SettledIn_PrisonMarker -->
+  <ThingDef ParentName="SettledIn_MarkerBase">
+    <defName>SettledIn_PrisonMarker</defName>
+    <label>prison pillar</label>
+    <description>tbd</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Pillar_Base</texPath>
+      <color>(100, 100, 200)</color>
+    </graphicData>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>0</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxDistance>25</maxDistance>
+        <!-- <appliedHediff>SettledIn_LaboratoryAura</appliedHediff> -->
+        <statOffsets>
+          <!-- <ResearchSpeedFactor>0.25</ResearchSpeedFactor>
+          <RestRateMultiplier>-0.30</RestRateMultiplier> -->
+        </statOffsets>
+      </li>
+    </comps>
+  </ThingDef>
+  <!-- SettledIn_PartyHallMarker -->
+  <ThingDef ParentName="SettledIn_MarkerBase">
+    <defName>SettledIn_PartyHallMarker</defName>
+    <label>party hall pillar</label>
+    <description>tbd</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Pillar_Base</texPath>
+      <color>(100, 100, 200)</color>
+    </graphicData>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>0</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxDistance>25</maxDistance>
+        <!-- <appliedHediff>SettledIn_LaboratoryAura</appliedHediff> -->
+        <statOffsets>
+          <!-- <ResearchSpeedFactor>0.25</ResearchSpeedFactor>
+          <RestRateMultiplier>-0.30</RestRateMultiplier> -->
+        </statOffsets>
+      </li>
+    </comps>
+  </ThingDef>
+  <!-- SettledIn_IdeologyHallMarker -->
+  <!-- 
+  <ThingDef ParentName="SettledIn_MarkerBase">
+    <defName>SettledIn_IdeologyHallMarker</defName>
+    <label>ideology pillar</label>
+    <description>tbd</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Pillar_Base</texPath>
+      <color>(100, 100, 200)</color>
+    </graphicData>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>0</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxDistance>25</maxDistance>
+        </statOffsets>
+      </li>
+    </comps>
+  </ThingDef> 
+  -->
+  <!-- SettledIn_GeneratorMarker -->
+  <ThingDef ParentName="SettledIn_MarkerBase">
+    <defName>SettledIn_GeneratorMarker</defName>
+    <label>generator pillar</label>
+    <description>A massive industrial monolith that acts as a central capacitor and governor for the settlement's power grid. It overclocks all nearby power-generating structures, significantly increasing their watt output while streamlining the consumption of connected machinery. \n\nEstablishes a 'High-Voltage' zone. Detrimental to sleep, diplomacy, and medical care. Only suitable for heavy industry and power plants.</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Pillar_Base</texPath>
+      <color>(120, 100, 80)</color>
+    </graphicData>
+    <costList>
+      <Steel>200</Steel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>Electricity</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>1</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxDistance>25</maxDistance>
+        <appliedHediff>SettledIn_GeneratorAura</appliedHediff>
+        <statOffsets>
+          <GeneratorPowerOutput>0.25</GeneratorPowerOutput>
+          <WorkTableWorkSpeedFactor>0.20</WorkTableWorkSpeedFactor>
+          <BedRestEffectiveness>-0.50</BedRestEffectiveness>
+          <MedicalSurgerySuccessChance>-0.50</MedicalSurgerySuccessChance>
+          <ResearchSpeedFactor>-0.50</ResearchSpeedFactor>
+          <QuestRewardMarketValueFactor>-0.20</QuestRewardMarketValueFactor>
+        </statOffsets>
+        <statFactors>
+          <PowerConsumption>0.85</PowerConsumption>
+        </statFactors>
+      </li>
+    </comps>
+  </ThingDef>
+  <!-- SettledIn_TownhallMarker -->
+  <ThingDef ParentName="SettledIn_MarkerBase">
+    <defName>SettledIn_TownhallMarker</defName>
+    <label>townhall pillar</label>
+    <description>A majestic monument to civic order and political authority. It establishes a 'Bureaucratic Hub' that significantly enhances trade, diplomacy, and the social standing of the settlement's leaders. \n\nEstablishes an environment where words carry weight, but hands go idle. Absolutely unsuitable for the grit of the forge or the sterile quiet of a laboratory.</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Pillar_Base</texPath>
+      <color>(210, 180, 140)</color>
+    </graphicData>
+    <costList>
+      <Steel>150</Steel>
+      <Silver>300</Silver>
+    </costList>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>2</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxDistance>30</maxDistance>
+        <appliedHediff>SettledIn_TownhallAura</appliedHediff>
+        <statOffsets>
+          <QuestRewardMarketValueFactor>0.20</QuestRewardMarketValueFactor>
+          <WorkTableWorkSpeedFactor>-0.70</WorkTableWorkSpeedFactor>
+          <MedicalSurgerySuccessChance>-0.50</MedicalSurgerySuccessChance>
+        </statOffsets>
+      </li>
+    </comps>
+  </ThingDef>
+  <!-- SettledIn_MeditationMarker -->
+  <ThingDef ParentName="SettledIn_MarkerBase">
+    <defName>SettledIn_MeditationMarker</defName>
+    <label>meditation pillar</label>
+    <description>A towering monolith that anchors the settlement's spirits. It establishes a 'Vortex of Stillness' that empowers meditation, royal dignity, and peaceful rest. \n\nHowever, the absolute silence and psychic pressure here make it impossible to conduct frantic industrial labor or rigorous scientific research.</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Pillar_Base</texPath>
+      <color>(160, 140, 230)</color>
+    </graphicData>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>1</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxDistance>30</maxDistance>
+        <appliedHediff>SettledIn_MeditationAura</appliedHediff>
+        <statOffsets>
+          <BedRestEffectiveness>0.20</BedRestEffectiveness>
+          <ImmunityGainSpeed>0.10</ImmunityGainSpeed>
+          <WorkTableWorkSpeedFactor>-0.50</WorkTableWorkSpeedFactor>
+          <ResearchSpeedFactor>-0.50</ResearchSpeedFactor>
+          <MedicalSurgerySuccessChance>-0.20</MedicalSurgerySuccessChance>
+        </statOffsets>
+      </li>
+    </comps>
+  </ThingDef>
+  <!-- SettledIn_AdjacentMarkerBase -->
+  <ThingDef Name="SettledIn_AdjacentMarkerBase" ParentName="BuildingBase" Abstract="True">
+    <defName>SettledIn_AdjacentMarkerBase</defName>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.1, 1.1)</drawSize>
+    </graphicData>
+    <altitudeLayer>FloorEmplacement</altitudeLayer>
+    <passability>Standable</passability>
+    <pathCost>0</pathCost>
+    <building>
+      <isEdifice>false</isEdifice>
+      <deconstructible>true</deconstructible>
+    </building>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>800</WorkToBuild>
+      <Mass>15</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(1,1)</size>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <designationCategory>DesignationCategory_SettledIn</designationCategory>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
     <drawPlaceWorkersWhileInstallBlueprintSelected>true</drawPlaceWorkersWhileInstallBlueprintSelected>
     <placeWorkers>
+      <li>DanielRenner.SettledIn.PlaceWorker_InSpecificRoom</li>
       <li>DanielRenner.SettledIn.PlaceWorker_MinSettlementLevel</li>
-      <li>DanielRenner.SettledIn.PlaceWorker_UniqueOnMap</li>
-      <!-- <li>PlaceWorker_ShowFacilitiesConnections</li> -->
       <li>DanielRenner.SettledIn.PlaceWorker_ShowAdjustableFacilitiesRange</li>
     </placeWorkers>
+  </ThingDef>
+  <!-- SettledIn_KitchenMarker-->
+  <ThingDef ParentName="SettledIn_AdjacentMarkerBase">
+    <defName>SettledIn_KitchenMarker</defName>
+    <label>kitchen marker</label>
+    <description>A brass floor-sigil marking a sector of professional culinary production. By establishing a 'Standard of Catering' within its radius, it provides comfort and nutritional efficiency to nearby residents and diners. \n\nBeneficial when placed adjacent to large apartment complexes or grand dining halls.</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Marker_Kitchen</texPath>
+      <color>(245, 230, 200)</color>
+    </graphicData>
+    <costList>
+      <Steel>100</Steel>
+    </costList>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>0</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxDistance>15</maxDistance>
+        <appliedHediff>SettledIn_KitchenAura</appliedHediff>
+        <statOffsets>
+          <BedRestEffectiveness>0.15</BedRestEffectiveness>
+          <WorkTableWorkSpeedFactor>0.10</WorkTableWorkSpeedFactor>
+        </statOffsets>
+        <statFactors>
+          <EntertainmentKindFactor_Social>1.15</EntertainmentKindFactor_Social>
+        </statFactors>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="DanielRenner.SettledIn.AdjacencyProperties">
+        <allowedRoomRole>
+          <li>Kitchen</li>
+        </allowedRoomRole>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- SettledIn_ScienceCabinet -->
+  <ThingDef ParentName="SettledIn_AdjacentMarkerBase">
+    <defName>SettledIn_ScienceCabinet</defName>
+    <label>science cabinet</label>
+    <description>A storage for precise instruments. When placed in a Laboratory, it provides a "Mindful" bonus to nearby medical facilities.</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Marker_ScienceCabinet</texPath>
+      <color>(150, 150, 255)</color>
+    </graphicData>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>0</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxDistance>10</maxDistance>
+        <statOffsets>
+          <MedicalTendQualityOffset>0.05</MedicalTendQualityOffset>
+          <ResearchSpeedFactor>0.10</ResearchSpeedFactor>
+        </statOffsets>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="DanielRenner.SettledIn.AdjacencyProperties">
+        <requiredRoomRole>
+          <li>Laboratory</li>
+          <li>DrugLab</li>
+        </requiredRoomRole>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- SettledIn_StorageCabinetMarker -->
+  <!--
+  <ThingDef ParentName="SettledIn_AdjacentMarkerBase">
+    <defName>SettledIn_StorageCabinetMarker</defName>
+    <label>storage room marker</label>
+    <description>A "Dirty" but efficient marker. Improves work speed in adjacent rooms by ensuring materials are logically indexed and keeping them clean.</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Marker_Base</texPath>
+      <color>(100, 80, 60)</color>
+    </graphicData>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>0</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxDistance>12</maxDistance>
+        <statOffsets>
+          <WorkTableWorkSpeedFactor>0.15</WorkTableWorkSpeedFactor>
+        </statOffsets>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="DanielRenner.SettledIn.AdjacencyProperties">
+        <requiredRoomRole>
+          <li>Storeroom</li>
+          <li>Room</li>
+        </requiredRoomRole>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  -->
+  <!-- SettledIn_ElectricalCabinetMarker -->
+  <ThingDef ParentName="SettledIn_AdjacentMarkerBase">
+    <defName>SettledIn_ElectricalCabinetMarker</defName>
+    <label>electrical cabinet marker</label>
+    <description>A brass floor-sigil marking a localized power distribution junction. By stabilizing the current and optimizing transformer output within its radius, it significantly reduces the energy drain of industrial machinery and lighting. \n\nEssential for high-tech workshops and energy-heavy production zones.</description>
+    <researchPrerequisites>
+      <li>Electricity</li> 
+    </researchPrerequisites>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Marker_ElectricalCabinet</texPath>
+      <color>(255, 235, 120)</color>
+    </graphicData>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>1</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxSimultaneous>1</maxSimultaneous>
+        <maxDistance>15</maxDistance>
+        <appliedHediff>SettledIn_ElectricalAura</appliedHediff>
+        <statOffsets>
+          <WorkTableWorkSpeedFactor>0.10</WorkTableWorkSpeedFactor>
+        </statOffsets>
+        <statFactors>
+          <PowerConsumption>0.85</PowerConsumption>
+        </statFactors>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="DanielRenner.SettledIn.AdjacencyProperties">
+        <requiredRoomRole>
+          <li>ElectricalRoom</li>
+        </requiredRoomRole>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- SettledIn_BathroomMarker -->
+  <ThingDef ParentName="SettledIn_AdjacentMarkerBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>SettledIn_BathroomMarker</defName>
+    <label>sanitation hub marker</label>
+    <description>A specialized floor-sigil that coordinates local plumbing and waste management. It ensures that toilets, showers, and basins within its radius operate at peak efficiency by establishing a 'Standard of Sanitation'. \n\nRequires an established bathroom to function.</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Marker_Bathroom</texPath>
+      <color>(160, 210, 255)</color>
+    </graphicData>
+    <costList>
+      <Steel>50</Steel>
+    </costList>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>0</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxDistance>15</maxDistance>
+        <appliedHediff>SettledIn_BathroomAura</appliedHediff>
+        <statOffsets>
+          <BedRestEffectiveness>0.10</BedRestEffectiveness>
+          <MedicalTendQualityOffset>0.05</MedicalTendQualityOffset>
+        </statOffsets>
+        <statFactors>
+          <WorkTableWorkSpeedFactor>1.05</WorkTableWorkSpeedFactor>
+        </statFactors>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="DanielRenner.SettledIn.AdjacencyProperties">
+        <allowedRoomRole>
+          <li>Bathroom</li>
+          <li>PublicBathroom</li>
+          <li>Washroom</li>
+        </allowedRoomRole>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- SettledIn_BreakroomMarker -->
+  <ThingDef ParentName="SettledIn_AdjacentMarkerBase">
+    <defName>SettledIn_BreakroomMarker</defName>
+    <label>breakroom marker</label>
+    <description>A designated floor-sigil for a respite area. It provides a subtle focus-enhancing atmosphere for the sector. \n\nSynergizes with almost all labor types by optimizing machine throughput and providing a mental safety net for workers.</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Marker_RecRoom</texPath>
+      <color>(133, 97, 67)</color>
+    </graphicData>
+    <costList>
+      <WoodLog>50</WoodLog>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Wood_Small</destroySound>
+    </building>
+    <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>0</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxSimultaneous>1</maxSimultaneous>
+        <maxDistance>15</maxDistance>
+        <maxDistanceFrom>5</maxDistanceFrom>
+        <requiresLOS>false</requiresLOS>
+        <appliedHediff>SettledIn_BreakroomAura</appliedHediff>
+        <statOffsets>
+          <MedicalTendQualityOffset>0.05</MedicalTendQualityOffset>
+          <ResearchSpeedFactor>0.10</ResearchSpeedFactor>
+        </statOffsets>
+
+        <statFactors>
+          <WorkTableWorkSpeedFactor>1.1</WorkTableWorkSpeedFactor>
+        </statFactors>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="DanielRenner.SettledIn.AdjacencyProperties">
+        <allowedRoomRole>
+          <li>PublicBathroom</li>
+          <li>DiningRoom</li>
+          <li>RecRoom</li>
+          <li>CommunityRoom</li>
+        </allowedRoomRole>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- SettledIn_DoctorsOfficeMarker -->
+  <ThingDef ParentName="SettledIn_AdjacentMarkerBase">
+    <defName>SettledIn_DoctorsOfficeMarker</defName>
+    <label>doctor's office marker</label>
+    <description>A dedicated administrative and diagnostic hub for the settlement's medical staff. By centralizing medical records and diagnostic tools, it allows doctors to work with increased speed and surgical precision. \n\nCrucial for high-risk operations and crisis management.</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Marker_DoctorsOffice</texPath>
+      <color>(200, 230, 255)</color>
+    </graphicData>
+    <costList>
+      <Silver>500</Silver>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>1</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxSimultaneous>1</maxSimultaneous>
+        <maxDistance>15</maxDistance>
+        <maxDistanceFrom>5</maxDistanceFrom>
+        <requiresLOS>false</requiresLOS>
+        <appliedHediff>SettledIn_DoctorsOfficeAura</appliedHediff>
+        <statOffsets>
+          <MedicalTendQualityOffset>0.10</MedicalTendQualityOffset>
+        </statOffsets>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="DanielRenner.SettledIn.AdjacencyProperties">
+        <allowedRoomRole>
+          <li>DoctorOffice</li>
+        </allowedRoomRole>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- SettledIn_GreeneryMarker -->
+  <ThingDef ParentName="SettledIn_AdjacentMarkerBase">
+    <defName>SettledIn_GreeneryMarker</defName>
+    <label>greenery marker</label>
+    <description>A brass floor-sigil marking a sector of cultivated life. By optimizing the local micro-climate and soil-energy flow, it enhances plant growth and provides a soothing atmosphere for those working with organic materials. \n\nCrucial for high-yield hydroponics and serene meditation halls.</description>
+    <graphicData>
+      <texPath>Building_Pillar/Building_Marker_Greenhouse</texPath>
+      <color>(100, 180, 100)</color>
+    </graphicData>
+    <costList>
+      <Steel>80</Steel>
+      <WoodLog>20</WoodLog>
+    </costList>
+    <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+    <comps>
+      <li Class="DanielRenner.SettledIn.CompProperties_SettlementLevelRequired">
+        <MinSettlementLevel>0</MinSettlementLevel>
+      </li>
+      <li Class="DanielRenner.SettledIn.CompProperties_AdjustableFacility">
+        <maxDistance>15</maxDistance>
+        <appliedHediff>SettledIn_GreeneryAura</appliedHediff>
+
+        <statOffsets>
+          <PlantGrowthRateFactor>0.15</PlantGrowthRateFactor>
+          <WorkTableWorkSpeedFactor>0.10</WorkTableWorkSpeedFactor>
+        </statOffsets>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="DanielRenner.SettledIn.AdjacencyProperties">
+        <requiredRoomRole>
+          <li>Hydroponics</li>
+        </requiredRoomRole>
+      </li>
+    </modExtensions>
   </ThingDef>
   <!-- ArkTek FloorLight-->
   <!--
@@ -418,7 +984,7 @@
       <li Class="DanielRenner.SettledIn.CompProperties_UpgradeSettlement"></li>
       <li Class="DanielRenner.SettledIn.CompProperties_AggregatedArt">
         <nameMaker>NamerArtFurniture</nameMaker>
-        <descriptionMaker>ArtDescription_Furniture</descriptionMaker>
+        <descriptionMaker>DanielRenner_SettledIn_ArtDescription_SettlementCenter</descriptionMaker>
         <minQualityForArtistic>Awful</minQualityForArtistic>
         <canBeEnjoyedAsArt>true</canBeEnjoyedAsArt>
       </li>

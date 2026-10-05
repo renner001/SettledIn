@@ -13,9 +13,40 @@ namespace DanielRenner.SettledIn
     {
         public static MainButtonDef MainTabSettlementScores;
 
+        // --- HUB MARKERS (SettledIn_MarkerBase) ---
+        public static ThingDef SettledIn_WarehouseMarker;
+        public static ThingDef SettledIn_ProductionCenter;
+        public static ThingDef SettledIn_SlumsMarker;
+        public static ThingDef SettledIn_LaboratoryMarker;
+        public static ThingDef SettledIn_HospitalMarker;
+        public static ThingDef SettledIn_BastionMarker;
+        public static ThingDef SettledIn_PrisonMarker;
+        public static ThingDef SettledIn_PartyHallMarker;
+        public static ThingDef SettledIn_IdeologyHallMarker;
+        public static ThingDef SettledIn_GeneratorMarker;
+        public static ThingDef SettledIn_TownhallMarker;
+        public static ThingDef SettledIn_MeditationMarker;
+
+        // --- ADJACENT MARKERS (SettledIn_AdjacentMarkerBase) ---
+        public static ThingDef SettledIn_KitchenMarker;
+        public static ThingDef SettledIn_ScienceCabinet;
+        public static ThingDef SettledIn_StorageCabinetMarker;
+        public static ThingDef SettledIn_ElectricalCabinetMarker;
+        public static ThingDef SettledIn_BathroomMarker;
+        public static ThingDef SettledIn_BreakroomMarker;
+        public static ThingDef SettledIn_DoctorsOfficeMarker;
+        public static ThingDef SettledIn_GreeneryMarker;
+
+        // AURAS
+        public static HediffDef SettledIn_HospitalAura;
+        public static HediffDef SettledIn_LaboratoryAura;
+        public static HediffDef SettledIn_BastionAura;
+        public static HediffDef SettledIn_WarehouseAura;
+
+
         public static ThingDef SettlementCenter;
         public static ThingDef TableSettlementOffice;
-        public static ThingDef SettledIn_SlumsMarker;
+
         public static ThingDef Commodity;
 
         public static JoyKindDef Productive;

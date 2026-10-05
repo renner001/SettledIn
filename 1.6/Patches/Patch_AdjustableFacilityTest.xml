@@ -5,6 +5,8 @@
     <xpath>/Defs/ThingDef/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
     <value>
       <li>SettledIn_ProductionCenter</li>
+      <li>SettledIn_KitchenMarker</li>
+      <li>SettledIn_WarehouseMarker</li>
     </value>
   </Operation>
 </Patch>

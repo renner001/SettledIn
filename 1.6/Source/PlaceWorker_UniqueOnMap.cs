@@ -26,5 +26,21 @@ namespace DanielRenner.SettledIn
             return true;
         }
 
+        public override bool IsBuildDesignatorVisible(BuildableDef def)
+        {
+            Log.DebugOnce("at least PlaceWorker_MinSettlementLevel.IsBuildDesignatorVisible() is getting called..");
+
+            // Map check (The Architect menu always has a CurrentMap context)
+            Map map = Find.CurrentMap;
+            if (map == null)
+                return false;
+
+            if (map.listerThings.ThingsOfDef(def as ThingDef).Count() > 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

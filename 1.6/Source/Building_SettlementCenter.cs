@@ -42,23 +42,16 @@ namespace DanielRenner.SettledIn
         public override void DoRecreationWork(Pawn pawn)
         {
             base.DoRecreationWork(pawn);
-            if (Rand.Value < 0.00002f) // roughly 4 per upgrade -> 1/80000
+            var aggregatedArtComp = GetComp<Comp_AggregatedArt>();
+            if (aggregatedArtComp != null && aggregatedArtComp.TryRecordNewHistoricalEvent(pawn))
             {
-                Log.Debug("trying to record new art to the settlement center");
-                var aggregatedArtComp = GetComp<Comp_AggregatedArt>();
-                if (aggregatedArtComp != null)
-                {
-                    if (aggregatedArtComp.TryRecordNewHistoricalEvent())
-                    {
-                        // send a message
-                        var taleTest = aggregatedArtComp.TaleRef.GenerateText(TextGenerationPurpose.ArtDescription, null);
-                        StringBuilder sb = new StringBuilder();
-                        sb.AppendLine("DanielRenner.SettledIn.SettlementCenterNewArtLetterContents".Translate());
-                        sb.AppendLine(taleTest);
-                        var letter = LetterMaker.MakeLetter("DanielRenner.SettledIn.SettlementCenterNewArtLetterTitle".Translate(), sb.ToString(), LetterDefOf.NeutralEvent);
-                        Find.LetterStack.ReceiveLetter(letter, null, 0, true);
-                    }
-                }
+                // send a message
+                var taleTest = aggregatedArtComp.TaleRef.GenerateText(TextGenerationPurpose.ArtDescription, aggregatedArtComp.Props.descriptionMaker);
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("DanielRenner.SettledIn.SettlementCenterNewArtLetterContents".Translate());
+                sb.AppendLine(taleTest);
+                var letter = LetterMaker.MakeLetter("DanielRenner.SettledIn.SettlementCenterNewArtLetterTitle".Translate(), sb.ToString(), LetterDefOf.NeutralEvent);
+                Find.LetterStack.ReceiveLetter(letter, null, 0, true);
             }
         }
 
@@ -86,7 +79,7 @@ namespace DanielRenner.SettledIn
 
         public void DevCreateTale()
         {
-            if (this.GetComp<Comp_AggregatedArt>().TryRecordNewHistoricalEvent())
+            if (this.GetComp<Comp_AggregatedArt>().TryRecordNewHistoricalEvent(null))
             {
                 Log.Debug("successfully recorded new event");
             }

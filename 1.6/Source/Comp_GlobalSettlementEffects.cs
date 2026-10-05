@@ -125,7 +125,7 @@ namespace DanielRenner.SettledIn
                                 if (validPawns != null && validPawns.Length > 0)
                                 {
                                     var count = validPawns.Length;
-                                    var randomPawn = validPawns[Rand.Range(0, count)];
+                                    var randomPawn = validPawns.RandomElement();
                                     randomPawn.guest.resistance = 0f;
                                     Messages.Message($"{randomPawn} resistance broke. For the settlement!", MessageTypeDefOf.PositiveEvent);
                                     settlementResources.GlobalEffects_IsPrisonFarAway_lastTriggered = Find.TickManager.TicksGame;
@@ -154,10 +154,10 @@ namespace DanielRenner.SettledIn
                                 {
                                     validPawns = colonistsAndPrisoners.Where(pawn => { return pawn.Ideo != null && pawn.ideo.Certainty > 0 && pawn.Ideo != primaryIdeo; }).ToArray();
                                 }
-                                if (validPawns != null)
+                                if (validPawns != null && validPawns.Any())
                                 {
                                     var count = validPawns.Length;
-                                    var randomPawn = validPawns[Rand.Range(0, count)];
+                                    var randomPawn = validPawns.RandomElement();
                                     randomPawn.ideo.SetIdeo(primaryIdeo);
                                     Messages.Message($"{randomPawn} was convinced to join {primaryIdeo}. For the settlement!", MessageTypeDefOf.PositiveEvent);
                                 }

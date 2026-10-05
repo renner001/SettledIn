@@ -96,11 +96,14 @@
     <Compile Include="CompProperties_AssignableToPawn.cs" />
     <Compile Include="DefOfs_SettledIn.cs" />
     <Compile Include="ITab_AggregatedArt.cs" />
+    <Compile Include="ITab_TradeNetwork.cs" />
     <Compile Include="JobDriver_RecreationTinkering.cs" />
     <Compile Include="JobDriver_RecreationConstruction.cs" />
     <Compile Include="JoyGiver_RecreationTinkering.cs" />
     <Compile Include="JoyGiver_RecreationConstruction.cs" />
+    <Compile Include="ModExtension_AdjacencyProperties.cs" />
     <Compile Include="Patch_TradeShip_GiveSoldThingToPlayer.cs" />
+    <Compile Include="PlaceWorker_InSpecificRoom.cs" />
     <Compile Include="PlaceWorker_ShowAdjustableFacilitiesRange.cs" />
     <Compile Include="Patch_CompAffectedByFacilities_CanLinkTo.cs" />
     <Compile Include="GameComponent_SettlementScoreManager.cs" />

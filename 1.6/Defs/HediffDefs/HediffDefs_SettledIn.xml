@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <HediffDef Name="SettledIn_AuraBase" Abstract="True">
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>400</disappearsAfterTicks>
+        <showRemainingTime>false</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName="SettledIn_AuraBase">
+    <defName>SettledIn_MeditationAura</defName>
+    <label>transcendental stillness</label>
+    <description>An overwhelming sense of quietude. The mind expands, making spiritual focus effortless, but the physical body feels heavy and detached from mundane labor.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeditationFocusGain>0.25</MeditationFocusGain>
+          <MentalBreakThreshold>-0.12</MentalBreakThreshold>
+          <PsychicEntropyRecoveryRate>0.20</PsychicEntropyRecoveryRate>
+        </statOffsets>
+        <statFactors>
+          <GlobalWorkSpeed>0.60</GlobalWorkSpeed>
+          <MoveSpeed>0.80</MoveSpeed>
+          <SocialImpact>0.70</SocialImpact>
+          <JoyGainFactor>1.20</JoyGainFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef ParentName="SettledIn_AuraBase">
+    <defName>SettledIn_GeneratorAura</defName>
+    <label>high-voltage thrum</label>
+    <description>The intense electromagnetic field and deafening roar of power generation. It drives a frantic industrial pace but shatters concentration and sleep.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <MentalBreakThreshold>0.10</MentalBreakThreshold>
+        </statOffsets>
+        <statFactors>
+          <SocialImpact>0.40</SocialImpact>
+          <RestRateMultiplier>0.60</RestRateMultiplier>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef ParentName="SettledIn_AuraBase">
+    <defName>SettledIn_TownhallAura</defName>
+    <label>administrative weight</label>
+    <description>The atmosphere of high-level governance. It bolsters diplomatic confidence and market savvy, but the strict formality makes manual labor feel undignified and exhausting.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <NegotiationAbility>0.25</NegotiationAbility>
+          <SocialImpact>0.30</SocialImpact>
+          <TradePriceImprovement>0.15</TradePriceImprovement>
+          <GlobalLearningFactor>0.10</GlobalLearningFactor>
+        </statOffsets>
+        <statFactors>
+          <GlobalWorkSpeed>0.50</GlobalWorkSpeed>
+          <SocialLearningFactor>1.25</SocialLearningFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef ParentName="SettledIn_AuraBase">
+    <defName>SettledIn_HospitalAura</defName>
+    <label>sterile aura</label>
+    <description>A clinical atmosphere that prioritizes biological recovery over all else.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <ImmunityGainSpeed>0.15</ImmunityGainSpeed>
+          <MentalBreakThreshold>-0.05</MentalBreakThreshold>
+        </statOffsets>
+        <statFactors>
+          <MedicalTendQuality>1.15</MedicalTendQuality>
+          <GlobalWorkSpeed>0.80</GlobalWorkSpeed>
+          <MoveSpeed>0.90</MoveSpeed>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef ParentName="SettledIn_AuraBase">
+    <defName>SettledIn_LaboratoryAura</defName>
+    <label>analytical aura</label>
+    <description>Deep concentration on the theoretical. Great for discovery, poor for social grace.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <GlobalLearningFactor>0.20</GlobalLearningFactor>
+        </statOffsets>
+        <statFactors>
+          <ResearchSpeed>1.40</ResearchSpeed>
+          <SocialImpact>0.60</SocialImpact>
+          <TradePriceImprovement>0.80</TradePriceImprovement>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef ParentName="SettledIn_AuraBase">
+    <defName>SettledIn_BastionAura</defName>
+    <label>combat readiness aura</label>
+    <description>An environment of constant drills. Sharpens the blade, but dulls the mind and spirit.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>2.0</ShootingAccuracyPawn>
+          <MeleeHitChance>2.0</MeleeHitChance>
+          <MentalBreakThreshold>0.15</MentalBreakThreshold>
+        </statOffsets>
+        <statFactors>
+          <PsychicEntropyRecoveryRate>0.60</PsychicEntropyRecoveryRate>
+          <GlobalWorkSpeed>0.60</GlobalWorkSpeed>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef ParentName="SettledIn_AuraBase">
+    <defName>SettledIn_WarehouseAura</defName>
+    <label>warehouse aura</label>
+    <description>Navigating through these precisely tiered goods feels almost effortless, allowing for an optimized stride. The sheer amount of randomly stacked items is bad for mental health though.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <MoveSpeed>0.60</MoveSpeed>
+          <MentalBreakThreshold>0.15</MentalBreakThreshold>
+        </statOffsets>
+        <statFactors>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef ParentName="SettledIn_AuraBase">
+    <defName>SettledIn_DoctorsOfficeAura</defName>
+    <label>diagnostic focus</label>
+    <stages>
+      <li>
+        <statOffsets>
+          <MedicalSurgerySuccessChance>0.20</MedicalSurgerySuccessChance>
+          <MedicalTendSpeed>0.25</MedicalTendSpeed>
+          <GlobalLearningFactor>0.20</GlobalLearningFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef ParentName="SettledIn_AuraBase">
+    <defName>SettledIn_BreakroomAura</defName>
+    <label>respite and focus</label>
+    <description>The proximity to a designated break area provides mental clarity. Even while working, the knowledge that rest is close at hand improves focus and emotional stability.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <GlobalLearningFactor>0.20</GlobalLearningFactor>
+        </statOffsets>
+        <statFactors>
+          <MentalBreakThreshold>0.90</MentalBreakThreshold>
+          <PsychicEntropyRecoveryRate>1.15</PsychicEntropyRecoveryRate>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef ParentName="SettledIn_AuraBase">
+    <defName>SettledIn_BathroomAura</defName>
+    <label>sanitary maintenance</label>
+    <description>Access to high-standard sanitation reduces physical stress and increases industrial endurance. It ensures workers spend more time at their stations and less time in transit.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <ImmunityGainSpeed>0.10</ImmunityGainSpeed>
+          <ToxicResistance>0.10</ToxicResistance>
+        </statOffsets>
+        <statFactors>
+          <MedicalTendQuality>1.10</MedicalTendQuality>
+          <GlobalWorkSpeed>1.05</GlobalWorkSpeed>
+          <JoyGainFactor>1.10</JoyGainFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef ParentName="SettledIn_AuraBase">
+    <defName>SettledIn_KitchenAura</defName>
+    <label>catered comfort</label>
+    <description>The presence of a nearby professional kitchen provides a sense of security and satiety. Meals are consumed with more leisure and provided nutrition feels more fulfilling.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <EatingSpeed>0.15</EatingSpeed>
+        </statOffsets>
+        <statFactors>
+          <JoyGainFactor>1.10</JoyGainFactor>
+          <HungerRateMultiplier>0.90</HungerRateMultiplier>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef ParentName="SettledIn_AuraBase">
+    <defName>SettledIn_ElectricalAura</defName>
+    <label>high-voltage hum</label>
+    <description>The low-frequency vibration of high-power transformers keeps the mind alert but prevents deep relaxation. It feels like the very air is charged with potential.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <MoveSpeed>0.10</MoveSpeed>
+          <MentalBreakThreshold>0.04</MentalBreakThreshold>
+        </statOffsets>
+        <statFactors>
+          <PsychicSensitivity>0.80</PsychicSensitivity>
+          <RestRateMultiplier>0.90</RestRateMultiplier>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef ParentName="SettledIn_AuraBase">
+    <defName>SettledIn_GreeneryAura</defName>
+    <label>botanical tranquility</label>
+    <description>The presence of thriving plant life and curated greenery provides a deep sense of calm. It aids in mental recovery and spiritual alignment.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeditationFocusGain>0.10</MeditationFocusGain>
+          <MentalBreakThreshold>-0.08</MentalBreakThreshold>
+          <PsychicEntropyRecoveryRate>0.10</PsychicEntropyRecoveryRate>
+        </statOffsets>
+        <statFactors>
+          <JoyGainFactor>1.15</JoyGainFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

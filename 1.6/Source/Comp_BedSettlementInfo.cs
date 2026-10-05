@@ -57,7 +57,10 @@ namespace DanielRenner.SettledIn
             return sb.ToString();
         }
 
+        // Red for social friction
         private static readonly Material HateLineMat = MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.Transparent, Color.red);
+        // Cyan/Blue for work commute
+        private static readonly Material WorkLineMat = MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.Transparent, Color.cyan);
 
         public override void PostDrawExtraSelectionOverlays()
         {
@@ -74,6 +77,7 @@ namespace DanielRenner.SettledIn
             if (assignedPawns == null || assignedPawns.Count() == 0)
                 return;
 
+            // go through once for rendering the hate lines
             foreach (var pawn in assignedPawns)
             {
                 if (!settledInComponent.UnlikedNeighborsSleepingNearby.ContainsKey(pawn))
@@ -93,6 +97,26 @@ namespace DanielRenner.SettledIn
 
                     Log.DebugOnce($"drawing enemy connector between {bed} and {enemyBed}");
                     GenDraw.DrawLineBetween(bed.TrueCenter(), enemyBed.TrueCenter(), AltitudeLayer.MetaOverlays.AltitudeFor(), HateLineMat, 0.2f);
+                }
+            }
+
+            // go through again renderign the lines to assigned work benches
+            foreach (var pawn in assignedPawns)
+            {
+                // We look for buildings where this pawn is the "Assigned" worker.
+                // This covers Thrones, Meditation Spots, and benches with specific assignments.
+                var workBuildings = map.listerBuildings.allBuildingsColonist
+                    .Where(b => {
+                        var compAssignable = b?.GetComp<CompAssignableToPawn>();
+                        if (compAssignable == null)
+                            return false;
+                        return compAssignable.AssignedPawns.Contains(pawn);
+                        }).ToList();
+
+                foreach (var workBuilding in workBuildings)
+                {
+                    // Draw a dashed or colored line to show the commute path
+                    GenDraw.DrawLineBetween(bed.TrueCenter(), workBuilding.TrueCenter(), AltitudeLayer.MetaOverlays.AltitudeFor(), WorkLineMat, 0.2f);
                 }
             }
         }

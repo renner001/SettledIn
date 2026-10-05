@@ -27,7 +27,14 @@ namespace DanielRenner.SettledIn
             var settlementComp = map.GetComponent<MapComponent_SettlementResources>();
             if (settlementComp == null)
                 return "DanielRenner.SettledIn.RequiresSettlementCenterOnMap".Translate();
-            var requiredLevel = thingDef.GetCompProperties<CompProperties_SettlementLevelRequired>().MinSettlementLevel;
+            var settlementLevelComp = thingDef.GetCompProperties<CompProperties_SettlementLevelRequired>();
+            if (settlementLevelComp == null)
+            {
+                var error = $"def {def} is missing CompProperties_SettlementLevelRequired";
+                Log.Error(error);
+                return error;
+            }
+            var requiredLevel = settlementLevelComp.MinSettlementLevel;
             if (requiredLevel > settlementComp.SettlementLevel)
             {
                 return "DanielRenner.SettledIn.RequiresHigherSettlementLevel".Translate();
@@ -35,5 +42,36 @@ namespace DanielRenner.SettledIn
             return true;
         }
 
+        public override bool IsBuildDesignatorVisible(BuildableDef def)
+        {
+            Log.DebugOnce("at least PlaceWorker_MinSettlementLevel.IsBuildDesignatorVisible() is getting called..");
+
+            /* this is not required as it is already part of the ArtchitectTab logic
+            // God mode check (Standard practice so devs can see everything)
+            if (DebugSettings.godMode) return true;*/
+
+            // Map check (The Architect menu always has a CurrentMap context)
+            Map map = Find.CurrentMap;
+            if (map == null) 
+                return false;
+
+            // Get the requirement from your CompProperties
+            if (def is ThingDef thingDef)
+            {
+                var props = thingDef.GetCompProperties<CompProperties_SettlementLevelRequired>();
+                if (props != null)
+                {
+                    var settlementComp = map.GetComponent<MapComponent_SettlementResources>();
+
+                    // 4. If no center exists yet, or level is too low, hide it!
+                    if (settlementComp == null || settlementComp.SettlementLevel < props.MinSettlementLevel)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
     }
 }

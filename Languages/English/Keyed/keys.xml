@@ -17,7 +17,12 @@
   <DanielRenner.SettledIn.CannotPlaceMoreThanOnce>Same building already exists on this map.</DanielRenner.SettledIn.CannotPlaceMoreThanOnce>
   <DanielRenner.SettledIn.MustBeNextToSettlementCenter>Not close enough to the settlement center.</DanielRenner.SettledIn.MustBeNextToSettlementCenter>
   <DanielRenner.SettledIn.AbilityUpgradeSettlementDisabledSettlementCenterUpgrading>Settlement center is still being prepared.</DanielRenner.SettledIn.AbilityUpgradeSettlementDisabledSettlementCenterUpgrading>
-
+  <DanielRenner.SettledIn.SettlementCenterArtIntro>Upon inspection the following pieces of art have been left in the stone:</DanielRenner.SettledIn.SettlementCenterArtIntro>
+  <DanielRenner.SettledIn.ChronicleStored>chronicles can be deciphered</DanielRenner.SettledIn.ChronicleStored>
+  <DanielRenner.SettledIn.ChroniclesTitle>The Chronicles of witness taken</DanielRenner.SettledIn.ChroniclesTitle>
+  <DanielRenner.SettledIn.SettlementCenterNewArtLetterTitle>New chronicle finished</DanielRenner.SettledIn.SettlementCenterNewArtLetterTitle>
+  <DanielRenner.SettledIn.SettlementCenterNewArtLetterContents>A new chronicle has been left on the settlement center.</DanielRenner.SettledIn.SettlementCenterNewArtLetterContents>
+  
   <!-- settlement alert-->
   <DanielRenner.SettledIn.SettlementAlertLabel>Settlement not optimal</DanielRenner.SettledIn.SettlementAlertLabel>
   <DanielRenner.SettledIn.SettlementAlertExplanationHead>There are troubles in your settlement layout (refreshes around midnight)</DanielRenner.SettledIn.SettlementAlertExplanationHead>
@@ -81,5 +86,8 @@
   <DanielRenner.SettledIn.BenefitGreatHalls>We learned how to stabilize even the greatest rooms. Never again will our roofs collapse for being too far from supports.</DanielRenner.SettledIn.BenefitGreatHalls>
   <DanielRenner.SettledIn.BenefitPristineClothing>The days of complicated tailoring and wearing rules for torn apparel are beneath the glory of our settlement! Apparel worn by colonists slowly repairs itself.</DanielRenner.SettledIn.BenefitPristineClothing>
 
+  <!-- trading depot -->
+  <DanielRenner.SettledIn.TabTradeNetwork>Network</DanielRenner.SettledIn.TabTradeNetwork>
+  <DanielRenner.SettledIn.TradeDeliveryReceived>trade goods received</DanielRenner.SettledIn.TradeDeliveryReceived>
 
 </LanguageData>

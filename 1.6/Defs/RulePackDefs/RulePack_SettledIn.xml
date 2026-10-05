@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <RulePackDef>
+    <defName>DanielRenner_SettledIn_ArtDescription_SettlementCenter</defName>
+    <include>
+      <li>ArtDescriptionRoot_Fixed</li>
+    </include>
+    <rulePack>
+      <rulesStrings>
+        <li>physical_description_root->Along the edges you find engraved a [depiction] of [image]. [desc_sentence_group]</li>
+        <li>physical_description_root->Near the top there is a [depiction] of [image]. [desc_sentence_group]</li>
+        <li>physical_description_root->Low on the ground squared along the center of the [chronicle] sits a [depiction] of [image]. [desc_sentence_group]</li>
+        <li>physical_description_root->This [chronicle] is engraved with a [depiction] of [image]. [desc_sentence_group]</li>
+        <li>physical_description_root->This [chronicle] bears a [depiction] of [image]. [desc_sentence_group]</li>
+        <li>physical_description_root->An engraving on this [chronicle] [depicts] [image]. [desc_sentence_group]</li>
+        <li>physical_description_root->The [chronicle] quite visibly record a [depiction] of [image]. [desc_sentence_group]</li>
+
+        <li>chronicle->chronicle</li>
+        <li>chronicle->monument</li>
+        <li>chronicle->historical record</li>
+        <li>chronicle->archive</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+</Defs>
